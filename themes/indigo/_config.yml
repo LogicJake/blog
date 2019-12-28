@@ -14,10 +14,14 @@ menu:
   archives:
     url: /archives
   tags:
+    text: 标签
     url: /tags
   th-list:
-    text: Categories
+    text: 分类
     url: /categories
+  address-card:
+    text: about me
+    url: /about
   github:
     url: https://github.com/LogicJake
     target: _blank
@@ -66,7 +70,7 @@ share: true
 search: true
 
 # 是否大屏幕下文章页隐藏导航
-hideMenu: true
+hideMenu: false
 
 # 是否开启toc
 # toc: false
