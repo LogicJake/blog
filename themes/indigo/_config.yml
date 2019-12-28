@@ -62,6 +62,7 @@ links:
     url: https://blog.erestu.top
   - name: muyun的博客
     url: https://muyun.work
+
 # 文章截断
 excerpt_render: false
 excerpt_length: 200
@@ -172,9 +173,9 @@ about: false
 #   site_pv: 站点总访问量：
 
 # 动态定义title
-title_change:
-  normal: (つェ⊂)咦!又好了!
-  leave: 人呢！
+# title_change:
+#   normal: (つェ⊂)咦!又好了!
+#   leave: 人呢！
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
 # 如果想让你的自定义样式生效，把此项设为 false
