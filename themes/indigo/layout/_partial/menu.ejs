@@ -1,7 +1,7 @@
-<aside id="menu" <% if((is_post() || page.layout === 'page') && theme.hideMenu){ %>class="hide"<% } %> >
+<aside id="menu" <% if((is_post() || page.layout === 'page') && theme.hideMenu){ %>class="hide" <% } %>>
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
+      <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" style="background-image:url(<%- url_for(theme.brand) %>)">
       <div class="brand">
@@ -24,14 +24,20 @@
           for (var i in theme.menu) {
             menuItem = theme.menu[i];
           %>
-            <li class="waves-block waves-effect<% if(isActive(menuItem)){ %> active<% } %>">
-              <a href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank"<% } %> >
-                <i class="icon icon-lg icon-<%= i %>"></i>
-                <%=(menuItem.text || _.startCase(i)) %>
-              </a>
-            </li>
+        <li class="waves-block waves-effect<% if(isActive(menuItem)){ %> active<% } %>">
+          <a href="<%- url_for(menuItem.url) %>" <% if(menuItem.target){ %>target="_blank" <% } %>>
+            <i class="icon icon-lg icon-<%= i %>"></i>
+            <%=(menuItem.text || _.startCase(i)) %>
+          </a>
+        </li>
         <% } %>
       </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
     </div>
   </div>
 </aside>
