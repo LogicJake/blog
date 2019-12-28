@@ -9,6 +9,8 @@ cache:
 install:
   - npm install hexo-cli -g
   - npm install hexo-generator-feed --save
+  - npm install hexo-generator-sitemap --save
+  - npm install hexo-generator-baidu-sitemap --save
   - npm install
 
 script:
