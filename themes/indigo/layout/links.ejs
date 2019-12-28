@@ -1,0 +1,24 @@
+<%- partial('_partial/header', {
+    title: locals.title || theme.links_title,
+    hdClass: 'links-header'
+}) %>
+<div class="container body-wrap fade">
+    <% if (theme.links && theme.links.length) { %>
+    <h3 class="archive-separator">
+        <%=theme.links_title%>
+    </h3>
+    <div class="waterfall">
+        <% theme.links.forEach(function(links) { %>
+        <div class="waterfall-item">
+            <article class="article-card archive-article">
+                <h3 class="post-title" itemprop="name">
+                    <a class="post-title-link" href="<%- links.url %>" target="_blank" itemprop="url">
+                        <%- links.name %></a>
+                </h3>
+            </article>
+        </div>
+        <%})%>
+    </div>
+    <% }%>
+    <%- partial('_partial/paginator') %>
+</div>

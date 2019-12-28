@@ -20,11 +20,14 @@ menu:
     text: 分类
     url: /categories
   address-card:
-    text: about me
+    text: About
     url: /about
   github:
     url: https://github.com/LogicJake
     target: _blank
+  link:
+    text: 友情链接
+    url: /links
 
 
 # 你的头像url
@@ -46,7 +49,19 @@ color: '#3F51B5'
 tags_title: Tags
 archives_title: Archives
 categories_title: Categories
+links_title: 友情链接
 
+# 友链
+#links:
+#  - name: 名称
+#  - url: 链接
+links:
+  - name: 于老板的博客
+    url: https://yuwenjie.cc/
+  - name: 甲鱼的博客
+    url: https://blog.erestu.top
+  - name: muyun的博客
+    url: https://muyun.work
 # 文章截断
 excerpt_render: false
 excerpt_length: 200
