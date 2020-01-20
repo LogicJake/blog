@@ -28,6 +28,10 @@ menu:
   link:
     text: 友情链接
     url: /links
+  link:
+    text: 竞赛信息
+    url: /MLCompetitionHub
+    target: _blank
 
 
 # 你的头像url
