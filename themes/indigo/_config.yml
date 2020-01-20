@@ -28,9 +28,9 @@ menu:
   link:
     text: 友情链接
     url: /links
-  link:
+  trophy:
     text: 竞赛信息
-    url: /MLCompetitionHub
+    url: https://www.logicjake.xyz/MLCompetitionHub/
     target: _blank
 
 
