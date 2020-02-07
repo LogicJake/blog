@@ -114,3 +114,10 @@ theme: indigo
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+
+encrypt:
+    enable: true
+    abstract: 文章已被加密
+    message: 输入密码
+    wrong_pass_message: 密码错误
+    
