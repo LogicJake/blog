@@ -124,7 +124,7 @@ less:
 
 # 以下评论插件开启一个即可
 # 是否开启 disqus
-disqus_shortname: logicjake-1
+disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false
 # 是否使用 gitment，https://github.com/imsun/gitment
@@ -136,11 +136,11 @@ gitment: false
 #   client_secret:
 
 # use gitalk://github.com/gitalk/gitalk
-gitalk: false
-#  owner: 
-#  repo: 
-#  client_id: 
-#  client_secret: 
+gitalk:
+ owner: LogicJake
+ repo: blog-issue
+ client_id: d9cc12cdab9604abf3b9
+ client_secret: 7e88722e749e7d414c5644d5edf7a8a4816e9035
 
 # Valine Comment system. https://valine.js.org
 valine:
