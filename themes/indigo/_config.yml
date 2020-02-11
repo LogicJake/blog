@@ -190,3 +190,5 @@ lightbox: true
 
 # icp备案号  ICP_license: 京ICP备1234556号-1
 ICP_license: 苏ICP备17047805号-1
+
+word_count: true

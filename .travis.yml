@@ -14,6 +14,7 @@ install:
   - npm install hexo-generator-json-content --save
   - npm install hexo-blog-encrypt --save
   - npm install gitalk --save
+  - npm install hexo-wordcount --save
   - npm install
 
 script:
