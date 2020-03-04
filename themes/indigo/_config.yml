@@ -11,29 +11,28 @@ menu:
   home:
     text: 主页
     url: /
-  archives:
-    url: /archives
-  tags:
-    text: 标签
-    url: /tags
-  th-list:
-    text: 分类
-    url: /categories
   address-card:
     text: About
     url: /about
   github:
     url: https://github.com/LogicJake
     target: _blank
-  link:
-    text: 友情链接
-    url: /links
   trophy:
     text: 竞赛信息
     url: https://www.logicjake.xyz/MLCompetitionHub/
     target: _blank
-
-
+  tags:
+    text: 标签
+    url: /tags
+  th-list:
+    text: 分类
+    url: /categories
+  archives:
+    url: /archives
+  link:
+    text: 友情链接
+    url: /links
+    
 # 你的头像url
 avatar: /img/avatar.png
 # avatar link
