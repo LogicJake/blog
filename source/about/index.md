@@ -25,7 +25,7 @@ date: 2019-12-28 13:33:31
 ### **DC竞赛 国能日新第二届光伏功率预测赛** `2019.8  -2019.10`
 线上第六
 
-### **Kaggle 2019 Data Science Bowl** `2019.12 - 2020.1`
+### **Kaggle: 2019 Data Science Bowl** `2019.12 - 2020.1`
 Top 9%，铜牌
 
 ### **图灵联邦 视频点击预测大赛** `2019.11 - 2020.2`
@@ -40,5 +40,5 @@ Top 9%，铜牌
 ### **腾讯 2020游戏安全技术竞赛机器学习赛道** `2020.4 -2020.4`
 第四
 
-### **University of Liverpool - Ion Switching** `2020.3 -2020.5`
+### **Kaggle: University of Liverpool - Ion Switching** `2020.3 -2020.5`
 Top 2%，银牌
