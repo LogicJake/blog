@@ -9,11 +9,11 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "4.2.0"
+    "version": "4.2.1"
   },
   "dependencies": {
     "gitalk": "^1.5.2",
-    "hexo": "^4.0.0",
+    "hexo": "^4.2.1",
     "hexo-blog-encrypt": "^3.0.9",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.6",
