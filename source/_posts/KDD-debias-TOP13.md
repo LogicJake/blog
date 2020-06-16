@@ -1,5 +1,5 @@
 ---
-title: KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing 赛后总结
+title: KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结
 date: 2020-06-16 14:18:17
 categories: 
 - 比赛总结
