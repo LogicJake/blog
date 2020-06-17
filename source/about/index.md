@@ -42,3 +42,6 @@ Top 9%，铜牌
 
 ### **Kaggle: University of Liverpool - Ion Switching** `2020.3 -2020.5`
 Top 2%，银牌
+  
+### **天池: KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing** `2020.4 -2020.6`
+13 / 1895
