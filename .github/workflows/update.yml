@@ -29,12 +29,6 @@ jobs:
     - name: hexo gen
       run:  hexo g
 
-
-    - uses: actions/checkout@v2
-      with:
-        repository: LogicJake/LogicJake.github.io
-        token: ${{ secrets.ACCESS_TOKEN }}
-
     - name: commit
       run: |
         git config --global user.email 835410808@qq.com
