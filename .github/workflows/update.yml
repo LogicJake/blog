@@ -41,4 +41,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         force: true
-        repository: LogicJake.github.io
+        repository: LogicJake/LogicJake.github.io
