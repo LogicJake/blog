@@ -1,0 +1,44 @@
+name: 博客构建 CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: |
+        npm install hexo-cli -g
+        npm install hexo-generator-feed --save
+        npm install hexo-generator-sitemap --save
+        npm install hexo-generator-baidu-sitemap --save
+        npm install hexo-generator-json-content --save
+        npm install hexo-blog-encrypt --save
+        npm install gitalk --save
+        npm install hexo-wordcount --save
+        npm install hexo-renderer-less --save
+        npm install
+    
+    - name: hexo gen
+      run:  hexo g
+
+    - name: commit
+      run: |
+        git config --global user.email 835410808@qq.com
+        git config --global user.name BlogGithubAction
+        git add .
+        git commit -m "update blog" -a
+        
+    - name: push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        force: true
+        repository: LogicJake/LogicJake.github.io
