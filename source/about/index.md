@@ -26,7 +26,7 @@ date: 2019-12-28 13:33:31
 6 / 182
 
 ### **Kaggle: 2019 Data Science Bowl** `2019.12 - 2020.1`
-Top 9%，铜牌
+301 / 3493，铜牌
 
 ### **图灵联邦视频点击预测大赛** `2019.11 - 2020.2`
 第三
@@ -44,7 +44,7 @@ Top 9%，铜牌
 第四
 
 ### **Kaggle: University of Liverpool - Ion Switching** `2020.3 -2020.5`
-Top 2%，银牌
+45 / 2618，银牌
   
 ### **KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing** `2020.4 -2020.6`
 13 / 1895
@@ -54,3 +54,6 @@ Top 2%，银牌
 
 ### **第二届翼支付杯大数据建模大赛-信用风险用户识别** `2020.7 -2020.9`
 复赛第二，决赛二等奖
+
+### **Kaggle: Riiid! Answer Correctness Prediction** `2020.7 -2020.9`
+74 / 3460，银牌
