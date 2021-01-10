@@ -56,4 +56,4 @@ date: 2019-12-28 13:33:31
 复赛第二，决赛二等奖
 
 ### **Kaggle: Riiid! Answer Correctness Prediction** `2020.7 -2020.9`
-74 / 3460，银牌
+74 / 3395，银牌
