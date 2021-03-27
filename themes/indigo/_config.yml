@@ -32,7 +32,7 @@ menu:
   link:
     text: 友情链接
     url: /links
-    
+
 # 你的头像url
 avatar: /img/avatar.png
 # avatar link
@@ -46,7 +46,7 @@ favicon: /img/favicon.ico
 email: chenyangshi1996@gmail.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
-color: '#3F51B5'
+color: "#3F51B5"
 
 # 页面标题
 tags_title: Tags
@@ -65,6 +65,8 @@ links:
     url: https://blog.erestu.top
   - name: muyun的博客
     url: https://muyun.work
+  - name: xshellv的博客
+    url: https://www.xshellv.com/
 
 # 文章截断
 excerpt_render: false
@@ -94,7 +96,7 @@ hideMenu: false
 # 是否开启toc
 # toc: false
 toc:
-  list_number: true  # 是否显示数字排序
+  list_number: true # 是否显示数字排序
 
 # 文章页留言内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
 postMessage: <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
@@ -136,16 +138,16 @@ gitment: false
 
 # use gitalk://github.com/gitalk/gitalk
 gitalk:
- owner: LogicJake
- repo: blog-issue
- client_id: d9cc12cdab9604abf3b9
- client_secret: 7e88722e749e7d414c5644d5edf7a8a4816e9035
+  owner: LogicJake
+  repo: blog-issue
+  client_id: d9cc12cdab9604abf3b9
+  client_secret: 7e88722e749e7d414c5644d5edf7a8a4816e9035
 
 # Valine Comment system. https://valine.js.org
 valine:
   enable: false # 如果你想使用valine，请将值设置为 true
-  appId:  # your leancloud appId
-  appKey:  # your leancloud appKey
+  appId: # your leancloud appId
+  appKey: # your leancloud appKey
   notify: false # Mail notify
   verify: false # Verify code
   avatar: mm # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
@@ -156,7 +158,6 @@ valine:
 # 是否开启Hyper Comments，填写id则启用，false则禁用。http://hypercomments.com
 # Hyper Comments support. Write your id here, or false to disable
 hyper_id: false
-
 
 # 规范网址
 # 让搜索引擎重定向你的不同域名、不同子域、同域不同目录的站点到你期望的路径
