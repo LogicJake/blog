@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/LogicJake/blog.svg?branch=master)](https://travis-ci.org/LogicJake/blog)
+[![Build Status](https://travis-ci.com/LogicJake/blog.svg?branch=master)](https://travis-ci.com/LogicJake/blog)
