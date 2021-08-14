@@ -1,0 +1,35 @@
+language: node_js
+node_js:
+  - lts/*
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install hexo-cli -g
+  - npm install hexo-generator-feed --save
+  - npm install hexo-generator-sitemap --save
+  - npm install hexo-generator-baidu-sitemap --save
+  - npm install hexo-generator-json-content --save
+  - npm install hexo-blog-encrypt --save
+  - npm install gitalk --save
+  - npm install hexo-wordcount --save
+  - npm install hexo-renderer-less --save
+  - npm install
+
+script:
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "hexo-blog"
+  - git config user.email "blog@hexo.com"
+  - git add .
+  - git commit -m "Update blog content by Travis CI"
+  - git push -f "https://${GH_TOKEN}@${GH_REF}" master:master
+
+branches:
+  only:
+    - master

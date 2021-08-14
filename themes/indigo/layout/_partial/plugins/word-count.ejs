@@ -1,0 +1,6 @@
+<% if (theme.word_count) { %>
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count"><%= wordcount(page.content) %></span>字 |
+    阅读时长≈<span class="post-count"><%= min2read(page.content) %></span>分钟
+</span>
+<% } %>
