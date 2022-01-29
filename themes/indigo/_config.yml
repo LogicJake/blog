@@ -67,6 +67,8 @@ links:
     url: https://muyun.work
   - name: xshellv的博客
     url: https://www.xshellv.com/
+  - name: TripleZ的博客
+    url: https://blog.triplez.cn/
 
 # 文章截断
 excerpt_render: false
