@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021推广搜算法秋招面经 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="360-推荐算法一面算法题：1. 非递归的二叉树中序遍历；2.  指定概率列表，写一个随机采样算法  介绍竞赛 召回的多样性 数据规模 ANN使用的什么工具 点击率预估为什么选择 lgb 排序为什么不使用基于 pair wise 的模型 了解 LambdaMart 算法吗 lightgbm 相较于 xgboost 的优势 了解的其他点击率预估算法 对特征交叉方面的个人理解 wide &amp; d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021推广搜算法秋招面经">
+<meta property="og:url" content="https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="360-推荐算法一面算法题：1. 非递归的二叉树中序遍历；2.  指定概率列表，写一个随机采样算法  介绍竞赛 召回的多样性 数据规模 ANN使用的什么工具 点击率预估为什么选择 lgb 排序为什么不使用基于 pair wise 的模型 了解 LambdaMart 算法吗 lightgbm 相较于 xgboost 的优势 了解的其他点击率预估算法 对特征交叉方面的个人理解 wide &amp; d">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-03T21:37:56.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021推广搜算法秋招面经</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021推广搜算法秋招面经</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-07-03T21:37:56.000Z" itemprop="datePublished" class="page-time">
+  2021-07-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#360-推荐算法"><span class="post-toc-number">1.</span> <span class="post-toc-text">360-推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#百度-推荐算法"><span class="post-toc-number">2.</span> <span class="post-toc-text">百度-推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">二面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三面"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">三面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#触宝-推荐算法"><span class="post-toc-number">3.</span> <span class="post-toc-text">触宝-推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-2"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">二面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三面-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">三面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#华为-消费者BG"><span class="post-toc-number">4.</span> <span class="post-toc-text">华为-消费者BG</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面（FX计划挂）"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">一面（FX计划挂）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面（正式批）"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">一面（正式批）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-3"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">二面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三面-2"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">三面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#shein-推荐算法"><span class="post-toc-number">5.</span> <span class="post-toc-text">shein-推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面（挂）"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">一面（挂）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#拼多多-推荐算法"><span class="post-toc-number">6.</span> <span class="post-toc-text">拼多多-推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-3"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-4"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">二面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三面-3"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">三面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#哔哩哔哩-广告推荐算法"><span class="post-toc-number">7.</span> <span class="post-toc-text">哔哩哔哩-广告推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-4"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-5"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">二面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#阿里巴巴-淘特-推荐广告"><span class="post-toc-number">8.</span> <span class="post-toc-text">阿里巴巴-淘特-推荐广告</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-5"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-6"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">二面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#美团-广告推荐算法"><span class="post-toc-number">9.</span> <span class="post-toc-text">美团-广告推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-6"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-7"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">二面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三面-4"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">三面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#爱奇艺-广告推荐算法"><span class="post-toc-number">10.</span> <span class="post-toc-text">爱奇艺-广告推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-7"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-8"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">二面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三面-5"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">三面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网易云音乐-推荐算法"><span class="post-toc-number">11.</span> <span class="post-toc-text">网易云音乐-推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-8"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-9"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">二面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快手-社区推荐算法"><span class="post-toc-number">12.</span> <span class="post-toc-text">快手-社区推荐算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-9"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">一面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面-10"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">二面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小红书-社区算法"><span class="post-toc-number">13.</span> <span class="post-toc-text">小红书-社区算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面-10"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">一面</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2021推广搜算法秋招面经" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021推广搜算法秋招面经</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-07-03 21:37:56" datetime="2021-07-03T21:37:56.000Z"  itemprop="datePublished">2021-07-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">3.1k</span>字 |
+    阅读时长≈<span class="post-count">10</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="360-推荐算法"><a href="#360-推荐算法" class="headerlink" title="360-推荐算法"></a>360-推荐算法</h1><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>算法题：1. 非递归的二叉树中序遍历；2.  指定概率列表，写一个随机采样算法</p>
+<ol>
+<li>介绍竞赛</li>
+<li>召回的多样性</li>
+<li>数据规模</li>
+<li>ANN使用的什么工具</li>
+<li>点击率预估为什么选择 lgb</li>
+<li>排序为什么不使用基于 pair wise 的模型</li>
+<li>了解 LambdaMart 算法吗</li>
+<li>lightgbm 相较于 xgboost 的优势</li>
+<li>了解的其他点击率预估算法</li>
+<li>对特征交叉方面的个人理解</li>
+<li>wide &amp; deep 模型 wide 部分和 deep 部分分别侧重学习什么信息</li>
+<li>deepfm 一定优于 wide &amp; deep 吗</li>
+<li>如何解决稀疏问题（回答的 hash embedding，不知道对不对）</li>
+<li>在模型侧如何打压热门商品</li>
+</ol>
+<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>介绍比赛背景</li>
+<li>怎么分工的，你负责的部分</li>
+<li>为什么使用 w2v，有试过其他 embedding 工具吗</li>
+<li>w2v 的参数怎么调节的</li>
+<li>w2v 的 min_count 设置的多大，从什么方面考虑的</li>
+<li>介绍 NN 的结构</li>
+<li>怎么调参的</li>
+<li>了解哪些正则化方法（layernorm，batchnom）</li>
+<li>上面两者有什么区别</li>
+<li>有没有遇到过梯度消失，梯度爆炸，怎么解决的</li>
+<li>多任务模型结构了解吗</li>
+<li>知道哪些点击率预估模型</li>
+<li>点击率预估任务中负样本过多怎么办</li>
+<li>下采样后，训练样本和线上 server 样本分布不一样怎么办（纠偏公式）</li>
+<li>冷启动该怎么做</li>
+<li>开放题：现在做一个搜索系统，你会考虑哪些东西，各方面都行</li>
+<li>未来的职业规划</li>
+</ol>
+<h1 id="百度-推荐算法"><a href="#百度-推荐算法" class="headerlink" title="百度-推荐算法"></a>百度-推荐算法</h1><h2 id="一面-1"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h2><p>算法题：leetcode 34</p>
+<ol>
+<li>研究方向</li>
+<li>学习的课程</li>
+<li>推荐流程中哪一步最重要</li>
+<li>怎么办精排做的更准</li>
+<li>特征挖掘比较核心的技术</li>
+<li>特征挖掘方面，深度学习比机器学习的优点</li>
+<li>深度学习有能力做特征交叉，那哪些部分还需要我们人工去做</li>
+<li>如何解决新特征没有embedding的问题</li>
+<li>面对一个新的深度模型，如何去分析（参数，结构）</li>
+<li>介绍比赛</li>
+<li>比赛分工</li>
+<li>word2vec 向量作为embedding层初始化能提升多少效率</li>
+<li>word2vec 工作原理</li>
+<li>负采样的原理是什么</li>
+<li>二分类的损失函数</li>
+<li>多分类的损失函数</li>
+<li>sofamax公式是啥</li>
+<li>用的什么优化算法，为什么</li>
+<li>你的模型和别人相比有什么优点</li>
+<li>模型集成是模型越多越好吗</li>
+<li>模型的差异体现在哪里</li>
+<li>如何判断新加的特征是否有效</li>
+<li>MapReduce的原理知道吗</li>
+</ol>
+<h2 id="二面-1"><a href="#二面-1" class="headerlink" title="二面"></a>二面</h2><p>算法题：leetcode 1047</p>
+<ol>
+<li>介绍比赛</li>
+<li>比赛分工</li>
+<li>itemcf如何改进的</li>
+<li>手写itemcf伪代码</li>
+<li>工业上召回怎么做的（双塔）</li>
+<li>为什么物品的embedding离线生成，用户的embedding是在线计算，能反过来吗</li>
+<li>如果只有用户历史点击序列，怎么生成用户和物品的embedding</li>
+<li>word2vec和bert有什么区别</li>
+<li>召回的样本标签怎么构造</li>
+</ol>
+<h2 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h2><p>聊实习，聊项目，聊人生</p>
+<h1 id="触宝-推荐算法"><a href="#触宝-推荐算法" class="headerlink" title="触宝-推荐算法"></a>触宝-推荐算法</h1><h2 id="一面-2"><a href="#一面-2" class="headerlink" title="一面"></a>一面</h2><p>算法题：Leetcode 15. 三数之和</p>
+<ol>
+<li>介绍竞赛</li>
+<li>多路召回的介绍</li>
+<li>为什么选择lgb做点击率预测</li>
+<li>后处理打压的原因和做法</li>
+<li>为什么用transformer对有序序列处理</li>
+<li>transformer里残差连接的作用</li>
+</ol>
+<h2 id="二面-2"><a href="#二面-2" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>简述树的前序遍历，中序遍历，后序遍历</li>
+<li>什么是排序算法的稳定性，哪些排序算法是稳定的</li>
+<li>了解哪些传统的分类算法</li>
+<li>FM了解吗</li>
+<li>xgboost了解吗</li>
+<li>梯度消失和梯度爆炸，解决方法</li>
+<li>dropout和batchnorm可以放在一起用吗，顺序是怎么样的</li>
+<li>数值特征放到神经网络之前需要做哪些处理</li>
+<li>如何在端到端中进行自动分桶</li>
+<li>如何保证用户向量和物品向量在一个向量空间</li>
+<li>多任务学习了解吗</li>
+<li>多任务loss怎么结合</li>
+<li>联合训练和交替训练的区别</li>
+<li>推荐的整体流程</li>
+<li>召回有哪些做法</li>
+<li>精排模型有哪些</li>
+<li>推荐有哪些指标</li>
+<li>auc的变种</li>
+<li>推荐有哪些在线指标</li>
+<li>介绍竞赛项目</li>
+<li>如何评估NN的特征重要性</li>
+<li>树模型的特征重要性怎么计算的</li>
+<li>现在反思项目有哪些优化点</li>
+<li>竞赛如何分工合作的</li>
+</ol>
+<h2 id="三面-1"><a href="#三面-1" class="headerlink" title="三面"></a>三面</h2><ol>
+<li>介绍竞赛</li>
+<li>如果有新的商品上架，优化摆放位置，如何建模，有什么约束</li>
+<li>对触宝的了解</li>
+<li>以后的打算</li>
+</ol>
+<h1 id="华为-消费者BG"><a href="#华为-消费者BG" class="headerlink" title="华为-消费者BG"></a>华为-消费者BG</h1><h2 id="一面（FX计划挂）"><a href="#一面（FX计划挂）" class="headerlink" title="一面（FX计划挂）"></a>一面（FX计划挂）</h2><p>算法题：Leetcode 200. 岛屿数量 Leetcode 397. 整数替换</p>
+<ol>
+<li>介绍比赛</li>
+<li>介绍研究方向</li>
+<li>介绍聚类kmeans，还知道哪些聚类方法</li>
+<li>如何确定聚类数量</li>
+<li>介绍KNN</li>
+<li>TF-IDF 计算方法</li>
+<li>余弦距离和欧氏距离区别</li>
+<li>卷积神经网络的变种有哪些</li>
+<li>深度学习克服过拟合的方法</li>
+<li>dropout在循环神经网络需要注意什么</li>
+</ol>
+<h2 id="一面（正式批）"><a href="#一面（正式批）" class="headerlink" title="一面（正式批）"></a>一面（正式批）</h2><p>算法题：Leetcode 1143. 最长公共子序列</p>
+<ol>
+<li>说一下笔试题的思路</li>
+<li>介绍竞赛</li>
+<li>介绍实习</li>
+</ol>
+<h2 id="二面-3"><a href="#二面-3" class="headerlink" title="二面"></a>二面</h2><p>算法题：大数据找中位数</p>
+<ol>
+<li>介绍研究内容、研究背景、指标提升情况</li>
+<li>任选一个竞赛讲一下</li>
+<li>基于图片emb的召回和基于文本emb的召回哪个效果好，为什么</li>
+</ol>
+<h2 id="三面-2"><a href="#三面-2" class="headerlink" title="三面"></a>三面</h2><p>没问技术问题，忽略</p>
+<h1 id="shein-推荐算法"><a href="#shein-推荐算法" class="headerlink" title="shein-推荐算法"></a>shein-推荐算法</h1><h2 id="一面（挂）"><a href="#一面（挂）" class="headerlink" title="一面（挂）"></a>一面（挂）</h2><p>算法题：leetcode 802. 找到最终的安全状态</p>
+<ol>
+<li>介绍比赛</li>
+<li>ndcg计算方式</li>
+<li>如果使用auc，而不用ndcg，会有什么问题</li>
+<li>集成模型bagging和boosting的区别</li>
+<li>bagging和boosting在偏差和方差上的区别</li>
+<li>xgboost和gbdt的区别</li>
+<li>xgboost的叶子生成方式</li>
+<li>lightgbm在计算速度上做了哪些优化</li>
+<li>模型打压热门有哪些做法</li>
+<li>知道ee吗</li>
+<li>skip-gram和cbow的区别</li>
+<li>skip-gram和cbow哪一个预测速度快</li>
+<li>skip-gram和cbow哪一个对稀疏词效果好</li>
+<li>skip-gram 负采样和分层softmax的时间复杂度各是多少</li>
+<li>multi-head的作用是什么</li>
+<li>self-attention为什么要缩放</li>
+</ol>
+<h1 id="拼多多-推荐算法"><a href="#拼多多-推荐算法" class="headerlink" title="拼多多-推荐算法"></a>拼多多-推荐算法</h1><h2 id="一面-3"><a href="#一面-3" class="headerlink" title="一面"></a>一面</h2><p>算法题：Leetcode 82. 删除排序链表中的重复元素 II</p>
+<ol>
+<li>介绍简历上的竞赛</li>
+<li>介绍ANN的召回</li>
+<li>工业界中，排序使用召回的信息会有什么问题</li>
+<li>工业界中，w2v向量做为Embedding层初始化会有什么问题</li>
+<li>比赛分工</li>
+</ol>
+<h2 id="二面-4"><a href="#二面-4" class="headerlink" title="二面"></a>二面</h2><p>算法题：股票一次买入和卖出，求最佳收益和买入卖出点</p>
+<ol>
+<li>介绍竞赛</li>
+<li>介绍研究方向</li>
+<li>如果资源无限，去掉前置的召回阶段，直接进行全量的排序，模型的效果会有什么影响</li>
+<li>深度学习在推荐方面的应用</li>
+</ol>
+<h2 id="三面-3"><a href="#三面-3" class="headerlink" title="三面"></a>三面</h2><ol>
+<li>了解拼多多吗</li>
+<li>为什么想做推荐</li>
+<li>从哪些地方了解的相关知识</li>
+<li>介绍推荐系统</li>
+<li>双塔召回为什么离线索引物品embedding</li>
+<li>概率题：北京一般有雾霾的概率是1/4，有三个同事都说今天有雾霾，但他们说真话的概率为3/4，问今天真的有雾霾的概率是多少。</li>
+</ol>
+<h1 id="哔哩哔哩-广告推荐算法"><a href="#哔哩哔哩-广告推荐算法" class="headerlink" title="哔哩哔哩-广告推荐算法"></a>哔哩哔哩-广告推荐算法</h1><h2 id="一面-4"><a href="#一面-4" class="headerlink" title="一面"></a>一面</h2><p>算法题：leetcode 518. 零钱兑换 II</p>
+<ol>
+<li>介绍多任务工作</li>
+<li>介绍优化器算法，演化进程</li>
+<li>LR有大量的特征交叉，如何做特征筛选</li>
+<li>L1和L2正则化的区别</li>
+<li>神经网络初始化方法</li>
+<li>神经网络都初始化成相同的参数会有什么影响，如何缓解</li>
+<li>粗排是怎么做</li>
+</ol>
+<h2 id="二面-5"><a href="#二面-5" class="headerlink" title="二面"></a>二面</h2><p>问实习，问未来打算</p>
+<h1 id="阿里巴巴-淘特-推荐广告"><a href="#阿里巴巴-淘特-推荐广告" class="headerlink" title="阿里巴巴-淘特-推荐广告"></a>阿里巴巴-淘特-推荐广告</h1><h2 id="一面-5"><a href="#一面-5" class="headerlink" title="一面"></a>一面</h2><ol>
+<li>介绍实习</li>
+<li>端外的转换label怎么得到的</li>
+<li>介绍竞赛</li>
+</ol>
+<h2 id="二面-6"><a href="#二面-6" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>介绍实习</li>
+<li>阿里和字节算法的优缺点</li>
+<li>介绍广告整体的请求背景</li>
+<li>介绍现在推荐的热点，发展方向</li>
+</ol>
+<h1 id="美团-广告推荐算法"><a href="#美团-广告推荐算法" class="headerlink" title="美团-广告推荐算法"></a>美团-广告推荐算法</h1><h2 id="一面-6"><a href="#一面-6" class="headerlink" title="一面"></a>一面</h2><ol>
+<li>介绍实习内容</li>
+<li>多任务的 loss 怎么设计</li>
+<li>有没有考虑辅助任务带偏主任务的情况</li>
+<li>在线指标有哪些</li>
+<li>广告主价值是什么</li>
+<li>多任务更应该关注哪些在线指标</li>
+<li>为什么要下掉ID类特征</li>
+<li>ocpx里的 bid 出价指什么</li>
+<li>过拟合的解决方式</li>
+<li>dropout原理</li>
+<li>广告系统的有哪些模块</li>
+<li>混排流程</li>
+<li>混排在排序侧做还是出价侧做</li>
+<li>广告推荐各个模块用的 point wise，pair wise 还是 list wise（答案不唯一）</li>
+<li>概率题：两个人抛硬币，抛到正面的人获胜，先手抛获胜的概率是多少</li>
+<li>算法题：给定一串数列长度为n（无序），给定子序列长度为k（k&lt;=n）,求出长度为k的子序列，使其数字总和为最大值的所有情况。值域（-无穷，+无穷）,输出为序列元素的idx。数列[1,2,3] k=3 ，输出[0,1,2], k=2 输出[1,2]<br>[1,2,3,3] k=3 输出[1,2,3], k=1 输出[2], [3]</li>
+</ol>
+<h2 id="二面-7"><a href="#二面-7" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>浅拷贝和深拷贝的区别，python里的具体实现</li>
+<li>c++栈和堆的区别</li>
+<li>最大后验和最大似然的区别</li>
+<li>xgboost、lightgbm、GBDT之间的区别</li>
+<li>树的分裂增益是什么</li>
+<li>介绍实习内容</li>
+<li>介绍竞赛</li>
+<li>职业规划</li>
+<li>算法题：数字0和1的矩阵，判断矩阵中的1能否围成一个圈</li>
+</ol>
+<h2 id="三面-4"><a href="#三面-4" class="headerlink" title="三面"></a>三面</h2><ol>
+<li>介绍实习</li>
+<li>多任务中有没有辅助任务带偏主任务的情况</li>
+<li>介绍竞赛</li>
+<li>比赛分工</li>
+<li>和前排方案的差距</li>
+</ol>
+<h1 id="爱奇艺-广告推荐算法"><a href="#爱奇艺-广告推荐算法" class="headerlink" title="爱奇艺-广告推荐算法"></a>爱奇艺-广告推荐算法</h1><h2 id="一面-7"><a href="#一面-7" class="headerlink" title="一面"></a>一面</h2><ol>
+<li>介绍竞赛</li>
+<li>xgboost、lightgbm、GBDT之间的区别</li>
+<li>NN的优化调参思路</li>
+<li>有没有试过BN，效果怎么样</li>
+<li>算法题：Leetcode 5. 最长回文子串</li>
+</ol>
+<h2 id="二面-8"><a href="#二面-8" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>介绍竞赛</li>
+<li>商品的属性 embedding 可以怎么得到</li>
+<li>工业场景下召回的主流做法</li>
+<li>协同过滤和双塔模型各有什么缺点</li>
+<li>召回双塔最后加DNN做交叉，产生的计算复杂度会在哪些方面</li>
+<li>如何解决冷门商品召回</li>
+<li>介绍实习内容</li>
+<li>算法题：Leetcode 142. 环形链表 II</li>
+</ol>
+<h2 id="三面-5"><a href="#三面-5" class="headerlink" title="三面"></a>三面</h2><ol>
+<li>介绍实习</li>
+<li>为什么要做多目标</li>
+<li>业界中多目标怎么做的</li>
+<li>熟悉什么编程语言</li>
+<li>会用 tensorflow 吗</li>
+<li>什么时候毕业</li>
+<li>有哪些 offer</li>
+</ol>
+<h1 id="网易云音乐-推荐算法"><a href="#网易云音乐-推荐算法" class="headerlink" title="网易云音乐-推荐算法"></a>网易云音乐-推荐算法</h1><h2 id="一面-8"><a href="#一面-8" class="headerlink" title="一面"></a>一面</h2><ol>
+<li>聊项目</li>
+<li>如何改进 itemcf 的</li>
+<li>session 截断怎么做的</li>
+<li>ANN 的用户向量表示怎么得到的</li>
+<li>特征工程怎么做的</li>
+<li>算法题：字符串逆序并转换大小写：”Hello Word” 转换为 “wORLD hELLO”</li>
+</ol>
+<h2 id="二面-9"><a href="#二面-9" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>介绍实习</li>
+<li>mmoe和esmm解决的问题是什么</li>
+<li>上面两者的loss函数是什么</li>
+<li>介绍精排模型结构</li>
+<li>DIN和DIEN的区别</li>
+<li>大规模稀疏特征优化器如何选择</li>
+<li>如何缓解模型过拟合</li>
+<li>L1正则和L2正则的区别</li>
+<li>树的分裂方式</li>
+<li>GBDT和随机森林的区别</li>
+</ol>
+<h1 id="快手-社区推荐算法"><a href="#快手-社区推荐算法" class="headerlink" title="快手-社区推荐算法"></a>快手-社区推荐算法</h1><h2 id="一面-9"><a href="#一面-9" class="headerlink" title="一面"></a>一面</h2><ol>
+<li>介绍实习</li>
+<li>精排模型结构</li>
+<li>介绍竞赛</li>
+<li>算法题：浮点数的三次方根</li>
+</ol>
+<h2 id="二面-10"><a href="#二面-10" class="headerlink" title="二面"></a>二面</h2><ol>
+<li>知道哪些字符串匹配算法，介绍一下kmp</li>
+<li>快排算法，是否是稳定的，如何改进成稳定的</li>
+<li>两个骰子根据各自的高斯分布出随机值，随机选取一个骰子摇，得到一个随机数，求他是哪个骰子得到的</li>
+<li>如何求目标函数的最小值</li>
+<li>nn 怎么求导</li>
+<li>rnn 怎么求导</li>
+<li>过拟合的缓解方法</li>
+<li>介绍实习内容</li>
+</ol>
+<h1 id="小红书-社区算法"><a href="#小红书-社区算法" class="headerlink" title="小红书-社区算法"></a>小红书-社区算法</h1><h2 id="一面-10"><a href="#一面-10" class="headerlink" title="一面"></a>一面</h2><p>算法题：leetcode 239. 滑动窗口最大值</p>
+<ol>
+<li>介绍研究内容</li>
+<li>网络表示在工业界的应用现状</li>
+<li>介绍竞赛里如何作的debias</li>
+<li>竞赛过程中哪些地方提升明显</li>
+<li>介绍以下transformer</li>
+<li>如何学习机器学习的</li>
+<li>业界推荐算法下的痛点和热点</li>
+<li>介绍LR</li>
+<li>LR的损失函数为什么是连乘</li>
+<li>介绍AUC的含义</li>
+<li>roc曲线的两个坐标轴分别是什么</li>
+<li>测试集负样本不变，正样本变为一半，auc指标有什么变化</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/&title=《2021推广搜算法秋招面经》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/&title=《2021推广搜算法秋招面经》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021推广搜算法秋招面经》 — 滑天下之大稽&url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/09/20/%E4%B8%80%E7%82%B9%E8%B5%84%E8%AE%AF%E6%8A%80%E6%9C%AF%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%B5%9BCTR%E8%B5%9B%E9%81%93-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">一点资讯技术编程大赛CTR赛道-赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/03/23/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E6%9A%91%E5%81%87%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2021推广搜算法暑假实习面经</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/&title=《2021推广搜算法秋招面经》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/&title=《2021推广搜算法秋招面经》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021推广搜算法秋招面经》 — 滑天下之大稽&url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2021/07/03/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

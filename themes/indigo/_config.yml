@@ -19,7 +19,7 @@ menu:
     target: _blank
   trophy:
     text: 竞赛信息
-    url: https://www.logicjake.xyz/MLCompetitionHub/
+    url: https://logicjake.github.io/MLCompetitionHub/
     target: _blank
   tags:
     text: 标签

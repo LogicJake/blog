@@ -96,12 +96,12 @@ for test_df in 线上测试集:
 ### 关于 task_container_id 的强特
 Kaggle 上关于 task_container_id 的讨论不少，[这则帖子](https://www.kaggle.com/c/riiid-test-answer-prediction/discussion/189465)指出了 timestamp 和 task_container_id 不连续的问题，如图1所示。  
 
-![图1](https://pic.logicjake.xyz/kaggle_riiid_1.png)  
+![图1](https://raw.githubusercontent.com/LogicJake/imghub/master/kaggle_riiid_1.png)  
 
 
 根据 Kaggle 工作人员在其他 discussion 里的答疑，timestamp 代表的是用户结束回答题目的时间。task_container_id 来源于这样一个场景：用户每次做题会得到一批题目，task_container_id 代表的是这批题目的编号，编号从0开始自增，所以 task_container_id 的大小反应了用户开始做题的顺序。如果用户都是做完一批题目再做下一批题目，那么 task_container_id 应该是随着 timestamp 依次增大的。图2代表的就是做完一批题目再做下一批题目的场景（方框中编号代表 task_container_id）。  
 
-![图2](https://pic.logicjake.xyz/kaggle_riiid_2.png)  
+![图2](https://raw.githubusercontent.com/LogicJake/imghub/master/kaggle_riiid_2.png)  
 
 
 但是在上学的时候，老师应该教过我们：遇到不会的题目先跳过，过一会再做。task_container_id 不连续的原因就在于此，以图3为例，用户做到 task_container_id 为1的题目时发现题目不会做，所以先行跳过做 task_container_id 为2的题目。task_container_id 为2的题目比较简单，做完之后再返回去攻克 task_container_id 为1的题目。这就导致了 task_container_id 不随着 timestamp 自增的现象。根据这个现象我们可以构造一个强特：当前题目所属 task_container_id 和之前一批题目的 task_container_id 的差值，差值的绝对值越大，代表回答这次题目时跳过的越多。**这个特征提升约1.5k**。
@@ -116,7 +116,7 @@ if task_container_id != u_task_container_id_dict[user_id]:
 
 ```
 
-![图3](https://pic.logicjake.xyz/kaggle_riiid_3.png)
+![图3](https://raw.githubusercontent.com/LogicJake/imghub/master/kaggle_riiid_3.png)
 
 ### 用户和题目组合特征
 用户和题目的交叉特征非常有用，但受限于二者交叉之后巨大维度带来的内存问题，只构造了2个特征，且都需要特殊的数据结构减少内存占用。

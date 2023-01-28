@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>A*算法理解及代码实现 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法">
+    <meta name="description" content="A*寻路算法要解决的问题就是在有障碍物的情况下，如何快速找到一条到达目的节点的最短路径。 把问题抽象成以下场景：在一个由M×N的方块组成的区域中，绿色代表起始点，蓝色代表无法越过的障碍物，红色代表终点。需要注意的是，我们在寻路的时候无法越过“墙角”，对照到下图就是不能走红色路线，必须走蓝色路线。这是因为在抽象场景下，移动物体是无体积所以可以直接沿着红线穿过去，但在实际情况下，比如无人车寻路，考虑到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A*算法理解及代码实现">
+<meta property="og:url" content="https://logicjake.github.io/2019/12/28/A_star/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="A*寻路算法要解决的问题就是在有障碍物的情况下，如何快速找到一条到达目的节点的最短路径。 把问题抽象成以下场景：在一个由M×N的方块组成的区域中，绿色代表起始点，蓝色代表无法越过的障碍物，红色代表终点。需要注意的是，我们在寻路的时候无法越过“墙角”，对照到下图就是不能走红色路线，必须走蓝色路线。这是因为在抽象场景下，移动物体是无体积所以可以直接沿着红线穿过去，但在实际情况下，比如无人车寻路，考虑到">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star1.jpg">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star2.jpg">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star3.jpg">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star4.jpg">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star5.jpg">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star6.jpg">
+<meta property="og:image" content="http://pic.logicjake.xyz/a_star7.webp">
+<meta property="article:published_time" content="2019-12-28T12:12:07.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.logicjake.xyz/a_star1.jpg">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">A*算法理解及代码实现</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">A*算法理解及代码实现</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-28T12:12:07.000Z" itemprop="datePublished" class="page-time">
+  2019-12-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#算法流程"><span class="post-toc-number">1.</span> <span class="post-toc-text">算法流程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流程解释"><span class="post-toc-number">2.</span> <span class="post-toc-text">流程解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始搜索"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">开始搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继续搜索"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">继续搜索</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码实现</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-A_star" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">A*算法理解及代码实现</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-28 12:12:07" datetime="2019-12-28T12:12:07.000Z"  itemprop="datePublished">2019-12-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">1.5k</span>字 |
+    阅读时长≈<span class="post-count">5</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>A*寻路算法要解决的问题就是在有障碍物的情况下，如何快速找到一条到达目的节点的最短路径。</p>
+<p>把问题抽象成以下场景：在一个由M×N的方块组成的区域中，绿色代表起始点，蓝色代表无法越过的障碍物，红色代表终点。需要注意的是，我们在寻路的时候无法越过“墙角”，对照到下图就是不能走红色路线，必须走蓝色路线。这是因为在抽象场景下，移动物体是无体积所以可以直接沿着红线穿过去，但在实际情况下，比如无人车寻路，考虑到体积因素是无法行进红色路线的，所以在建模的时候需要加上这样的约束条件。当然在不涉及到墙角的情况下是可以走斜线的，这是毋庸置疑的。</p>
+<a id="more"></a>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star1.jpg" alt="不能直接越过墙角" title="">
+                </div>
+                <div class="image-caption">不能直接越过墙角</div>
+            </figure></div>
+
+<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><p>首先定义open list和close list，open list存放已知但还没有探索过的区块，close list存放已经探索过的区块。</p>
+<p>最短路径肯定涉及到距离度量，在A*算法中距离分为两个部分：G 和H，总距离F=G + H。</p>
+<p>G等于从起点移动到指定方格的移动代价。在本例中，相邻节点间，横向和纵向的移动代价为 10 ，对角线的移动代价为 14 （10×根号2的近似）。为了方便计算和寻路，我们为每个节点设置一个父节点。父节点可以这样理解，在目前已知条件下，存在一条从起点到当前指定方格的最优路径，而父亲节点就是这条路径上的指定方格的上一个节点，计算当前方格的 G 值的方法就是找出其父亲的 G 值，然后按在父亲节点直线方向还是斜线方向加上 10 或 14。</p>
+<p>H为从当前节点到终点的估计距离，是对剩余距离的估算值，而不是实际值。它是一种理想值，忽略了障碍物的影响。在本例中使用曼哈顿距离（街区距离）来度量剩余距离。</p>
+<p>整个算法流程为：</p>
+<ul>
+<li>把起点加入open list，重复以下流程<ul>
+<li>如果open list为空，寻路失败，找不到到达终点的路径。遍历 open list ，查找 F 值最小的节点，把它作为当前要处理的节点。</li>
+<li>把这个节点移到 close list</li>
+<li>对当前方格的 8 个相邻方格的每一个方格<ul>
+<li>如果它是不可抵达的或者它在 close list 中，忽略。</li>
+<li>如果它不在 open list 中，把它加入 open list ，并且把当前方格设置为它的父亲，计算该方格的 F ， G 和 H 值。</li>
+<li>如果它已经在 open list 中，检查通过当前方格到达该方格是否代价更小，即G值更小。如果是这样，把它的父亲设置为当前方格，并重新计算它的 G 和 F 值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果终点加入到了open list中，此时路径已经找到，从终点开始，每个方格沿着父节点移动直至起点，这就是最优路径。</li>
+</ul>
+<p>由算法可以看出通过总距离F选出当前处理节点，通过G来更新路径（改变节点的父节点就是改变了路径）。</p>
+<p>另外需要注意：在寻找F值最小的时候可能会出现不止一个节点的情况，此时处于节省寻路时间的考虑，选择最后放入open list的节点。因为最后放入open list的节点是上一个处理节点的邻居节点，从而保证寻路时的连贯性，不会出现在寻路过程中突然跳到另外的地方重新开辟一条新路径。</p>
+<h1 id="流程解释"><a href="#流程解释" class="headerlink" title="流程解释"></a>流程解释</h1><p>解释流程前，先说明图例：</p>
+<ul>
+<li>绿色填充方块：起点</li>
+<li>蓝色填充方块：障碍</li>
+<li>红色填充方块：终点</li>
+<li>绿色边的方块：open list中的方块</li>
+<li>黄色边框方块：close list中的方块</li>
+<li>方块中白色箭头指向父亲节点</li>
+<li>方块中左上角数字代表F值，左下角G值，右下角H值*</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star2.jpg" alt="第1次搜索" title="">
+                </div>
+                <div class="image-caption">第1次搜索</div>
+            </figure>
+
+
+<h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><p>从open list中取出起始点，将起点加入close list。起点周围8个方格都可到达所以都加入到open list中，设置父节点为起点，并计算各自的F，G，H值。结果如上图所示。</p>
+<h2 id="继续搜索"><a href="#继续搜索" class="headerlink" title="继续搜索"></a>继续搜索</h2><p>从open list中找出F值最小的方格，起点右边的方格F值为40最小，暂且称该节点为A。将A从open list剔除，加入到close list。A右边为障碍物，忽略；其余方向的方格都已经在open list中且加入A并没有减小他们的G值，所以维持原样不变。</p>
+<p>结果如下图所示，可见起点右边的方格加上了黄色框，代表进入close list，其余不变。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star3.jpg" alt="第2次搜索结果" title="">
+                </div>
+                <div class="image-caption">第2次搜索结果</div>
+            </figure>
+
+<p>重复以上步骤，值得注意的是在第5次搜索，随着起点正下方方格（称其为B）加入到close list，处于B下方的方格（称其为C）因为B的加入，起点到C的距离缩短到80，所以C的父节点跟新为B，并相应跟新F，G，H的值。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star4.jpg" alt="第4次搜索结果" title="">
+                </div>
+                <div class="image-caption">第4次搜索结果</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star5.jpg" alt="第5次搜索结果" title="">
+                </div>
+                <div class="image-caption">第5次搜索结果</div>
+            </figure>
+
+<p>不断重复上述步骤，最后终点被加入到open list中，从终点开始，每个方格沿着父节点移动直至起点，就是最优路径。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star6.jpg" alt="最终结果" title="">
+                </div>
+                <div class="image-caption">最终结果</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/a_star7.webp" alt="全部过程" title="">
+                </div>
+                <div class="image-caption">全部过程</div>
+            </figure>
+
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/LogicJake/A-star-search" target="_blank" rel="noopener">https://github.com/LogicJake/A-star-search</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2019/12/28/A_star/&title=《A*算法理解及代码实现》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2019/12/28/A_star/&title=《A*算法理解及代码实现》 — 滑天下之大稽&source=A*寻路算法要解决的问题就是在有障碍物的情况下，如何快速找到一条到达目的节点的最短路径。
+把问题抽象成以下场景：在一个由M×N的方块组成的区域中，绿色代表..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2019/12/28/A_star/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《A*算法理解及代码实现》 — 滑天下之大稽&url=https://logicjake.github.io/2019/12/28/A_star/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2019/12/28/A_star/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/01/tianyicup-education/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/27/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hello world</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2019/12/28/A_star/&title=《A*算法理解及代码实现》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2019/12/28/A_star/&title=《A*算法理解及代码实现》 — 滑天下之大稽&source=A*寻路算法要解决的问题就是在有障碍物的情况下，如何快速找到一条到达目的节点的最短路径。
+把问题抽象成以下场景：在一个由M×N的方块组成的区域中，绿色代表..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2019/12/28/A_star/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《A*算法理解及代码实现》 — 滑天下之大稽&url=https://logicjake.github.io/2019/12/28/A_star/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2019/12/28/A_star/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2019/12/28/A_star/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

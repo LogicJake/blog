@@ -19,7 +19,7 @@ def my_agent(obs, config):
 ### minimax
 适用于零和博弈场景，每次操作即搜索选择对自己有利的情况，如果我们令甲胜的局面值为1，乙胜的局面值为-1，而和局的值为0。当轮到甲走时，甲定会选择子节点值最大的走法；而轮到乙时，乙则会选择子节点值最小的走法。所以对于中间节点的值有如下计算方法：如果该节点所对应的局面轮到甲走棋，则该节点的值是其所有子节点中值最大的一个的值。而如果该节点所对应的局面轮到乙走棋，则该节点的值是其所有子节点中值最小的一个的值，这就是minimax的搜索思想。minimax算法本质还是穷尽，解空间大的时候不适用。此时可以约束game tree的深度，另外不一定需要知道终局分数，也能对当前棋面做出大致评估。在下面的代码中，棋面的评估仅被分为输、赢、平3种状态。
 
-![minmax反向](https://pic.logicjake.xyz/minmax反向.png)
+![minmax反向](https://raw.githubusercontent.com/LogicJake/imghub/master/minmax反向.png)
 
 ```python
 def minimax_agent(obs, config):

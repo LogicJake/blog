@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2020腾讯广告算法大赛-赛后总结 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据挖掘,深度学习,推荐系统">
+    <meta name="description" content="最终成绩：12 &#x2F; 10000+比赛地址：https:&#x2F;&#x2F;algo.qq.com&#x2F;index.html源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;Tencent_Ads_Algo_2020_TOP12   今年腾讯赛一改往年机器学习为主流的状况，纯 id 数据导致特征工程的发力点弱化，整场比赛变成了一场深度学习比拼。不过感谢腾讯提供的机器（Tione真香），降低了参与门槛。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020腾讯广告算法大赛-赛后总结">
+<meta property="og:url" content="https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="最终成绩：12 &#x2F; 10000+比赛地址：https:&#x2F;&#x2F;algo.qq.com&#x2F;index.html源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;Tencent_Ads_Algo_2020_TOP12   今年腾讯赛一改往年机器学习为主流的状况，纯 id 数据导致特征工程的发力点弱化，整场比赛变成了一场深度学习比拼。不过感谢腾讯提供的机器（Tione真香），降低了参与门槛。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-24T22:29:45.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="数据挖掘">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="推荐系统">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2020腾讯广告算法大赛-赛后总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2020腾讯广告算法大赛-赛后总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-09-24T22:29:45.000Z" itemprop="datePublished" class="page-time">
+  2020-09-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">赛题背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题内容"><span class="post-toc-number">2.</span> <span class="post-toc-text">赛题内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#评价指标"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">评价指标</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#建模"><span class="post-toc-number">3.</span> <span class="post-toc-text">建模</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#融合"><span class="post-toc-number">4.</span> <span class="post-toc-text">融合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#stacking"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">stacking</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#blending"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">blending</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Age"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Age</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gender"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Gender</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2020腾讯广告算法大赛-赛后总结" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2020腾讯广告算法大赛-赛后总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-09-24 22:29:45" datetime="2020-09-24T22:29:45.000Z"  itemprop="datePublished">2020-09-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">1.7k</span>字 |
+    阅读时长≈<span class="post-count">6</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最终成绩：12 / 10000+<br>比赛地址：<a href="https://algo.qq.com/index.html" target="_blank" rel="noopener">https://algo.qq.com/index.html</a><br>源码：<a href="https://github.com/LogicJake/Tencent_Ads_Algo_2020_TOP12" target="_blank" rel="noopener">https://github.com/LogicJake/Tencent_Ads_Algo_2020_TOP12</a>  </p>
+<p>今年腾讯赛一改往年机器学习为主流的状况，纯 id 数据导致特征工程的发力点弱化，整场比赛变成了一场深度学习比拼。不过感谢腾讯提供的机器（Tione真香），降低了参与门槛。</p>
+<a id="more"></a>
+
+<h1 id="赛题背景"><a href="#赛题背景" class="headerlink" title="赛题背景"></a>赛题背景</h1><p>本届算法大赛的题目来源于一个重要且有趣的问题。众所周知，像用户年龄和性别这样的人口统计学特征是各类推荐系统的重要输入特征，其中自然也包括了广告平台。这背后的假设是，用户对广告的偏好会随着其年龄和性别的不同而有所区别。许多行业的实践者已经多次验证了这一假设。然而，大多数验证所采用的方式都是以人口统计学属性作为输入来产生推荐结果，然后离线或者在线地对比用与不用这些输入的情况下的推荐性能。本届大赛的题目尝试从另一个方向来验证这个假设，即以用户在广告系统中的交互行为作为输入来预测用户的人口统计学属性。我们认为这一赛题的“逆向思考”本身具有其研究价值和趣味性，此外也有实用价值和挑战性。例如，对于缺乏用户信息的实践者来说，基于其自有系统的数据来推断用户属性，可以帮助其在更广的人群上实现智能定向或者受众保护。与此同时，参赛者需要综合运用机器学习领域的各种技术来实现更准确的预估。</p>
+<h1 id="赛题内容"><a href="#赛题内容" class="headerlink" title="赛题内容"></a>赛题内容</h1><h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>在比赛期间，主办方将为参赛者提供一组用户在长度为 91 天（3 个月）的时间窗口内的广告点击历史记录作为训练数据集。每条记录中包含了日期（从 1 到 91）、用户信息（年龄，性别），被点击的广告的信息（素材 id、广告 id、产品 id、产品类目 id、广告主id、广告主行业 id 等），以及该用户当天点击该广告的次数。测试数据集将会是另一组用户的广告点击历史记录。</p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>大赛会根据参赛者提交的结果计算预测的准确率（accuracy）。年龄预测和性别预测将分别评估准确率，两者之和将被用作参赛者的打分。测试数据集会和训练数据集一起提供给参赛者。</p>
+<h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><p>不管是平时赛题群交流，还是赛后的前排方案开源，核心解题思路基本一致：先利用 word2vec 对数据中的各列 id 进行表示学习，然后对用户的广告点击序列进行建模。在建模步骤，可以尝试 LSTM，Transformer，Bert 甚至 CNN。相较于鱼佬的巨无霸 Bert 模型，我们团队走的是小模型融合路线。我用 pytorch 进行建模，其他两个队友使用 Keras 建模并尝试传统的机器学习方案（特征工程+Lightgbm）。利用深度学习框架差异性，输出差异性，输入差异性甚至优化器的差异性来提高融合效果。</p>
+<p>以产品 id 为例，将用户点击过的产品 id 按照点击日期排序，得到相对有序的产品 id 序列。将每个用户的点击产品 id 序列视为句子，输入到 word2vec 模型学习每个产品 id 的表示。用户的点击序列不定长，可以使用 keras 的 pad_sequences，对长截断对短补全，使得同一 id 下的用户序列长度相等。至此完成数据预处理，后面就是搭建一个序列分类模型，整体网络结构如图1所示。</p>
+<p>其中各个 id 的 embedding 层使用 word2vec 得到的预训练向量填充，并在模型训练过程中冻结。剩下的主要任务就是调参，自己本身也是个深度学习入门选手，所以也是边学习边尝试，以下是总结的从腾讯赛学到的调参思路和 trick：</p>
+<p><strong>通用</strong>：</p>
+<ul>
+<li>Embedding 维度</li>
+<li>序列截取的最大长度的选择</li>
+<li>预训练模型 Word2Vec 的参数选择：window，min_count…</li>
+<li>序列处理时是否需要筛掉低频 id</li>
+<li>优化器 optimizer 的选择，可以尝试一些最新的，比如 ranger</li>
+<li>激活函数的选择：mish…</li>
+<li>学习率衰减，比如：ReduceLROnPlateau</li>
+</ul>
+<p><strong>LSTM</strong>：</p>
+<ul>
+<li>units 的大小</li>
+<li>堆叠多少层 LSTM layer</li>
+</ul>
+<p><strong>CNN</strong>：</p>
+<ul>
+<li>filter_size 除了 3，4，5 还可以更大吗</li>
+<li>num_filters 大小</li>
+</ul>
+<p><strong>Transformer</strong>：</p>
+<ul>
+<li>学习率小一点</li>
+<li>head_num 大小</li>
+<li>堆叠层数</li>
+</ul>
+<h1 id="融合"><a href="#融合" class="headerlink" title="融合"></a>融合</h1><h2 id="stacking"><a href="#stacking" class="headerlink" title="stacking"></a>stacking</h2><p>使用了两种 stacking 方式:</p>
+<p>纯概率特征 stacking：将各个模型跑出来的概率分层进入 DNN (如 keras 产生的概率与 keras 产生的概率合并，torch 概率与 torch 概率合并, keras 概率先进入, torch 在 keras 概率经过了几层全连接之后再 concat, 实验证明这种做法可以避免相关性较高的概率带来的融合不利影响), 五折线上分数大概为 0.525  </p>
+<p>混合特征 stacking: 在采用了两 id 序列输入的 transformers 模型基础上，在最后经过全连接层之前跟上面的九个相关性较低的模型进行 concat, 起到类似于残差的作用，避免过拟合, 五折线上分数为 0.523</p>
+<h2 id="blending"><a href="#blending" class="headerlink" title="blending"></a>blending</h2><h2 id="Age"><a href="#Age" class="headerlink" title="Age"></a>Age</h2><p>比赛结束前一周我们使用了 huggingface transformers 重新实现了 transformer + LSTM 模型, 五折分数为 0.519, 而且相关度与之前实现的 keras 和 torch 都较低, 只有 0.93,0.94 左右 (相比 keras 之间的相似度高达 0.98, torch 之间相似度 0.96), 所有我们单独将这个模型与上面所生成的两个 stacking 模型进行融合，取得 0.52780 线上分数：</p>
+<p>0.50 * DNN_stacking + 0.15 * transformer_stacking + 0.35 * age_m13</p>
+<h2 id="Gender"><a href="#Gender" class="headerlink" title="Gender"></a>Gender</h2><p>Gender 主要是三个 transformer 模型进行基本均等的融合：线上分数 0.95048</p>
+<p>0.35 * gender_m1 + 0.35 * gender_m2 + 0.30 * gender_m3</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>第一名方案使用了 Bert 预训练模型，而与这次腾讯赛建模思路比较相似的另外一场比赛——<a href="https://tianchi.aliyun.com/competition/entrance/531810/information" target="_blank" rel="noopener">零基础入门NLP - 新闻文本分类</a>，第四名方法也使用了 Bert 模型，后面要自己尝试一下，对比一下实验效果。</p>
+<p>时间太久了，好多细节都记不清楚了，以后还是比赛结束就写总结比较好。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/166710532" target="_blank" rel="noopener">2020腾讯广告算法大赛方案分享（冠军）</a></li>
+<li><a href="https://tianchi.aliyun.com/forum/postDetail?postId=128734" target="_blank" rel="noopener">Rank4 NLP新闻文本分类-开源代码+经验分享@惊鹊</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" rel="tag">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《2020腾讯广告算法大赛-赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《2020腾讯广告算法大赛-赛后总结》 — 滑天下之大稽&source=最终成绩：12 / 10000+比赛地址：https://algo.qq.com/index.html源码：https://github.com/Logi..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2020腾讯广告算法大赛-赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/06/16/KDD-debias-TOP13/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《2020腾讯广告算法大赛-赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《2020腾讯广告算法大赛-赛后总结》 — 滑天下之大稽&source=最终成绩：12 / 10000+比赛地址：https://algo.qq.com/index.html源码：https://github.com/Logi..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2020腾讯广告算法大赛-赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

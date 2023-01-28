@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习,数据挖掘,风控">
+    <meta name="description" content="最终成绩：2 &#x2F; 392比赛地址：https:&#x2F;&#x2F;www.dcjingsai.com&#x2F;v2&#x2F;cmptDetail.html?id&#x3D;410源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;2020-yizhifu-credit-risk-user-identification-Top2   赛题背景央行发布《金融科技FinTech》报告，强调金融科技成为推动金融转型升级的新引擎，成为促">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结">
+<meta property="og:url" content="https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="最终成绩：2 &#x2F; 392比赛地址：https:&#x2F;&#x2F;www.dcjingsai.com&#x2F;v2&#x2F;cmptDetail.html?id&#x3D;410源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;2020-yizhifu-credit-risk-user-identification-Top2   赛题背景央行发布《金融科技FinTech》报告，强调金融科技成为推动金融转型升级的新引擎，成为促">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E7%94%A8%E6%88%B7%E4%BA%A7%E5%93%817%E5%A4%B1%E8%B4%A5%E6%AF%94%E4%BE%8B.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E7%99%BB%E5%BD%95%E6%97%B6%E6%AE%B51.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E7%99%BB%E5%BD%95%E6%97%B6%E6%AE%B52.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E8%AE%BE%E5%A4%87%E7%BE%A4%E4%BD%93.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E5%9F%8E%E5%B8%82%E7%BE%A4%E4%BD%93.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E6%93%8D%E4%BD%9C%E8%A1%8C%E4%B8%BA%E7%89%B9%E5%BE%81.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/%E4%BA%A4%E6%98%93%E8%A1%8C%E4%B8%BA%E7%89%B9%E5%BE%81.png">
+<meta property="article:published_time" content="2020-10-01T14:03:48.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="数据挖掘">
+<meta property="article:tag" content="风控">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.logicjake.xyz/%E7%94%A8%E6%88%B7%E4%BA%A7%E5%93%817%E5%A4%B1%E8%B4%A5%E6%AF%94%E4%BE%8B.png">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-10-01T14:03:48.000Z" itemprop="datePublished" class="page-time">
+  2020-10-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">赛题背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#任务"><span class="post-toc-number">2.</span> <span class="post-toc-text">任务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据介绍"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础信息"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">基础信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作信息"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">操作信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交易信息"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">交易信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方案总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">方案总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征工程"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">特征工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础特征"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">基础特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#群体黑样本比例"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">群体黑样本比例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#操作行为特征"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">操作行为特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#交易行为特征"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">交易行为特征</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第二届翼支付杯大数据建模大赛-信用风险用户识别-赛后总结" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-10-01 14:03:48" datetime="2020-10-01T14:03:48.000Z"  itemprop="datePublished">2020-10-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">3.6k</span>字 |
+    阅读时长≈<span class="post-count">12</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最终成绩：2 / 392<br>比赛地址：<a href="https://www.dcjingsai.com/v2/cmptDetail.html?id=410" target="_blank" rel="noopener">https://www.dcjingsai.com/v2/cmptDetail.html?id=410</a><br>源码：<a href="https://github.com/LogicJake/2020-yizhifu-credit-risk-user-identification-Top2" target="_blank" rel="noopener">https://github.com/LogicJake/2020-yizhifu-credit-risk-user-identification-Top2</a>  </p>
+<h1 id="赛题背景"><a href="#赛题背景" class="headerlink" title="赛题背景"></a>赛题背景</h1><p>央行发布《金融科技FinTech》报告，强调金融科技成为推动金融转型升级的新引擎，成为促进普惠金融发展的新机遇。运用大数据、人工智能等技术建立金融风控模型，有效甄别高风险交易，智能感知异常交易，实现风险早识别、早预警、早处置，提升金融风险技防能力，是 “金融+科技”成果的显著体现。</p>
+<a id="more"></a>
+<h1 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h1><p>信用风险用户识别，本次比赛采用auc对结果进行评分。</p>
+<h1 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h1><details>
+<summary>详细数据字段说明</summary>
+
+<h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>字段说明（数据经过脱敏处理）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td>样本编号，e.g., Train_00000、Train_00001…</td>
+</tr>
+<tr>
+<td>sex</td>
+<td>性别，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>age</td>
+<td>年龄，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>运营商类型，编码后取值为：category 0、category 1…</td>
+</tr>
+<tr>
+<td>level</td>
+<td>用户等级，编码后取值为：category 0、category 1…</td>
+</tr>
+<tr>
+<td>verified</td>
+<td>是否实名，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>using_time</td>
+<td>使用时长，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>regist_type</td>
+<td>注册类型，编码后取值为：category 0、category 1…</td>
+</tr>
+<tr>
+<td>card_a_cnt</td>
+<td>a类型卡的数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>card_b_cnt</td>
+<td>b类型卡的数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>card_c_cnt</td>
+<td>c类型卡的数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>card_d_cnt</td>
+<td>d类型卡的数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>op1_cnt</td>
+<td>某类型1操作数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>op2_cnt</td>
+<td>某类型2操作数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>service1_cnt</td>
+<td>某业务1产生数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>service1_amt</td>
+<td>某业务1产生金额，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>service2_cnt</td>
+<td>某业务2产生数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>agreement_total</td>
+<td>开通协议数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>agreement1</td>
+<td>是否开通协议1，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>agreement2</td>
+<td>是否开通协议2，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>agreement3</td>
+<td>是否开通协议3，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>agreement4</td>
+<td>是否开通协议4，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>acc_count</td>
+<td>账号数量，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>login_cnt_period1</td>
+<td>某段时期1的登录次数，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>login_cnt_period2</td>
+<td>某段时期2的登录次数，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>ip_cnt</td>
+<td>某段时期登录ip个数，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>login_cnt_avg</td>
+<td>某段时期登录次数均值，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>login_days_cnt</td>
+<td>某段时期登录天数，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>province</td>
+<td>省份，处理成类别编码</td>
+</tr>
+<tr>
+<td>city</td>
+<td>城市，处理成类别编码</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>余额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>balance_avg</td>
+<td>近某段时期余额均值等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>balance1</td>
+<td>类型1余额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>balance1_avg</td>
+<td>近某段时期类型1余额均值等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>balance2</td>
+<td>类型2余额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>balance2_avg</td>
+<td>近某段时期类型2余额均值等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>service3</td>
+<td>是否服务3用户，编码后取值为：category 0、category1</td>
+</tr>
+<tr>
+<td>service3_level</td>
+<td>服务3等级，编码后取值为：category 0、category1…</td>
+</tr>
+<tr>
+<td>product1_amount</td>
+<td>产品1金额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>product2_amount</td>
+<td>产品2金额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>product3_amount</td>
+<td>产品3金额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>product4_amount</td>
+<td>产品4金额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>product5_amount</td>
+<td>产品5金额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>product6_amount</td>
+<td>产品6金额等级，处理成保留大小关系的类别编码：level 1、level2… 例如：level 2 &gt; level 1</td>
+</tr>
+<tr>
+<td>product7_cnt</td>
+<td>产品7申请次数，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>product7_fail_cnt</td>
+<td>产品7申请失败次数，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+</tbody></table>
+<h2 id="操作信息"><a href="#操作信息" class="headerlink" title="操作信息"></a>操作信息</h2><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>字段说明（数据经过脱敏处理）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td>样本编号，e.g., Train_00000、Train_00001…</td>
+</tr>
+<tr>
+<td>op_type</td>
+<td>操作类型编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>op_mode</td>
+<td>操作模式编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>op_device</td>
+<td>操作设备编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>设备ip编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>net_type</td>
+<td>网络类型编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>渠道类型编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>ip_3</td>
+<td>设备ip前三位编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>tm_diff</td>
+<td>距离某起始时间点的时间间隔，处理成如下格式。例如： 9 days 09:02:45.000000000，表示距离某起始时间点9天9小时2分钟45秒</td>
+</tr>
+</tbody></table>
+<h2 id="交易信息"><a href="#交易信息" class="headerlink" title="交易信息"></a>交易信息</h2><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>字段说明（数据经过脱敏处理）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td>样本编号，e.g., Train_00000、Train_00001…</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>平台类型编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>tunnel_in</td>
+<td>来源类型编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>tunnel_out</td>
+<td>去向类型编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>交易金额，处理后仅保留大小关系，为某一区间的整数</td>
+</tr>
+<tr>
+<td>type1</td>
+<td>交易类型1编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>type2</td>
+<td>交易类型2编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>设备ip编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>ip_3</td>
+<td>设备ip前三位编码，处理成类别编码</td>
+</tr>
+<tr>
+<td>tm_diff</td>
+<td>距离某起始时间点的时间间隔，处理成如下格式。例如： 9 days 09:02:45.000000000，表示距离某起始时间点9天9小时2分钟45秒</td>
+</tr>
+</tbody></table>
+</details> 
+
+<h1 id="方案总结"><a href="#方案总结" class="headerlink" title="方案总结"></a>方案总结</h1><h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>特征工程之前先进行了一波预处理，数据介绍里说过所给数据进行了高度匿名化，因此引入了一些不合理性。比如余额等级这个特征被转换成类别编码，但同时存在大小关系：level 2 &gt; level 1。如果将其不处理作为类别特征输入，模型无法学习到之间的大小关系，所以我将其中的数字提取出来作为数值特征，能帮助模型提高9个w。特征工程围绕基础数据的交叉衍生，群体黑样本比例，操作行为特征和交易行为特征展开。</p>
+<h3 id="基础特征"><a href="#基础特征" class="headerlink" title="基础特征"></a>基础特征</h3><p>基础数据分为两大类：数值特征和类别特征。对所有的数值特征进行一波二阶相加，另外结合对数据的理解，进行了一些细致的二阶或者三阶的相加或相除运算。在这一步可以构造出一个强有力的特征：用户产品7申请失败比率（用户申请失败次数/用户申请次数），在正常用户和异常用户上的分布如图1所示，该特征可以帮助模型提升3个k。我猜测翼支付本身肯定有一套风险控制系统，对于潜在的风险用户提高了准入门槛，使得特定产品的申请失败率相较于正常用户较高。另外正常用户和风险用户偏好的登录时段也不一样，如图2和图3所示，正常用户更多地在时期1登录，而风险用户则在时期2登录。类别特征可以用拼接进行二阶交叉，也可以计数反应类别热度。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E7%94%A8%E6%88%B7%E4%BA%A7%E5%93%817%E5%A4%B1%E8%B4%A5%E6%AF%94%E4%BE%8B.png" alt="图1 用户产品7申请失败比率分布。橘黄色代表风险用户，蓝色代表正常用户" title="">
+                </div>
+                <div class="image-caption">图1 用户产品7申请失败比率分布。橘黄色代表风险用户，蓝色代表正常用户</div>
+            </figure></div>
+
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E7%99%BB%E5%BD%95%E6%97%B6%E6%AE%B51.png" alt="图2 登录时段2分布。橘黄色代表风险用户，蓝色代表正常用户" title="">
+                </div>
+                <div class="image-caption">图2 登录时段2分布。橘黄色代表风险用户，蓝色代表正常用户</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E7%99%BB%E5%BD%95%E6%97%B6%E6%AE%B52.png" alt="图3 登录时段1分布。橘黄色代表风险用户，蓝色代表正常用户" title="">
+                </div>
+                <div class="image-caption">图3 登录时段1分布。橘黄色代表风险用户，蓝色代表正常用户</div>
+            </figure>
+</div>
+
+<h3 id="群体黑样本比例"><a href="#群体黑样本比例" class="headerlink" title="群体黑样本比例"></a>群体黑样本比例</h3><p>之前参加过的反欺诈或者风控比赛，对群体的识别都比较有效。一般欺诈行为都是团队作战，位于同一个区域或者使用同一种价格低廉的手机。所以可以根据省份，城市，设备等属性划分群体，甚至两两属性组合进一步细分群体。划分群体之后，对群体样本进行五折交叉统计，得到群体的黑样本比率，或者称该群体发生违约风险的概率。该特征作为先验知识帮助模型提高识别准确率。图4和图5可以看出，不同群体之间的黑样本比率相差较大，在真实的业务场景中，可以针对不同的群体用户，采取不同等级的审核力度，从而尽可能减少风险用户。以设备和年龄组合这个细分群体来说，每个年龄段都有其偏好的手机类型，比如年轻人可能偏好于华为或者苹果，而老年人可能倾向于价格便宜的OPPO或者vivo（仅做举例，不一定准确）。但对一欺诈团队，其不一定符合这一现象，比如他们的设备往往可能是统一采购的低廉机型，从而出现与其年龄段不相称的使用机型，通过这一细分群体的划分可以帮助我们定位风险用户群体。</p>
+<div style="margin: auto;width:60%"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E8%AE%BE%E5%A4%87%E7%BE%A4%E4%BD%93.png" alt="图4 不同设备群体黑样本比例" title="">
+                </div>
+                <div class="image-caption">图4 不同设备群体黑样本比例</div>
+            </figure></div>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E5%9F%8E%E5%B8%82%E7%BE%A4%E4%BD%93.png" alt="图5 不同城市用户群体黑样本比例" title="">
+                </div>
+                <div class="image-caption">图5 不同城市用户群体黑样本比例</div>
+            </figure></div>
+
+<h3 id="操作行为特征"><a href="#操作行为特征" class="headerlink" title="操作行为特征"></a>操作行为特征</h3><p>对操作行为表主要是进行时空特征统计，具体流程如图6所示。这组特征主要使用pivot_table完成，所以构造的特征维度较高。另外在时间维度上，采取滑窗选取样本进行细化统计，比如用户最近15天进行过多少次操作类型为×××的操作。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E6%93%8D%E4%BD%9C%E8%A1%8C%E4%B8%BA%E7%89%B9%E5%BE%81.png" alt="图6 操作行为特征构造思路" title="">
+                </div>
+                <div class="image-caption">图6 操作行为特征构造思路</div>
+            </figure></div>
+
+<h3 id="交易行为特征"><a href="#交易行为特征" class="headerlink" title="交易行为特征"></a>交易行为特征</h3><p>交易行为特征的构造和操作行为特征差不多，具体流程如图7所示，只不过交易行为相较于操作行为多了一个很重要的特征：交易额。操作行为特征主要是计算多少次操作（count），而交易行为特征围绕交易额进行了一系列时间，空间或者时空维度的统计，比如：用户在××平台上交易额的平均值，最大值，用户最近15天交易额的平均值，总和，用户最近3天进行交易类型1的交易额的总和…</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/%E4%BA%A4%E6%98%93%E8%A1%8C%E4%B8%BA%E7%89%B9%E5%BE%81.png" alt="图7 交易行为特征构造思路" title="">
+                </div>
+                <div class="image-caption">图7 交易行为特征构造思路</div>
+            </figure></div>
+
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>模型方面没有使用过多繁杂的融合手段。初赛时候构造特征比较细致，特征的测试维度都是以个计算，追求线上和线下的一致性，避免过拟合。复赛由于入场较晚，没有过多的时间测试，所以测试维度都是以组为单位进行，生成的特征维度较高，但模型效果提升很快。所以最后采用了两套特征工程，一套是初赛方案，保证整体的鲁棒性，另外一套是复赛的梭哈版本，极大提高了模型效果。对两套特征工程分别使用lgb和xgb模型生成4个概率文件，使用指数加权融合得到最后的提交结果。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>初赛的时候由于平台算分bug，导致和前排分数差异太大，所以早早放弃保平安了。复赛再参与进来，剩余时间不多，也错过了组队机会，这一题感觉如果有队友融合提升应该很明显。自己没有队友融合，所以最后死马当作活马医，和初赛方案尝试融合了一下，没想到竟然比模型差异融合带来的效果还好。</p>
+<p>决赛答辩的时候，很多队伍都提到了对行为数据提取序列特征，但word2vec，tfidf和countvec在我这边效果都不好，只有初赛的时候对amount做word2vec有点提升。可能是因为暴力梭哈特征维度太高了，已经包含了序列特征能反映的信息。所以比赛还是有队友差异性融合比较好，所有的思路不要都放在一个方案里。</p>
+<p>比赛过程还尝试过其他思路，比如伪标签，但预测出来的概率值普遍不高，都没有超过0.9，所以放弃了。另外由于序列行为的存在，尝试了一波基于LSTM的nn建模，但效果也不好，融合也没有提升。</p>
+<p>这题的数据格式倒是好像挺常见，之前参与的2020腾讯游戏安全技术竞赛机器学习组赛题数据与之类似。此外本次比赛第一名大佬在答辩时提到的将操作行为和交易行为融合成一张大表做统计的思路挺好的，自己比赛时没有想到。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://logicjake.github.io/2020/04/16/2020%E8%85%BE%E8%AE%AF%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E7%AB%9E%E8%B5%9B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%84-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/">2020腾讯游戏安全技术竞赛机器学习组-TOP 4赛后总结</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzU0MjE2MzcxMA==&mid=2247483934&idx=1&sn=ebdbd88ae5d6bc5e0a708b578e583a60&chksm=fb1f958fcc681c99b31385f4cfee6471c4b0231d783af25cf09531b37ed2550216826e3788cd#rd" target="_blank" rel="noopener">第二届翼支付杯大数据建模大赛-信用风险用户识别 baseline 分享</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A3%8E%E6%8E%A7/" rel="tag">风控</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结》 — 滑天下之大稽&source=最终成绩：2 / 392比赛地址：https://www.dcjingsai.com/v2/cmptDetail.html?id=410源码：https:..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/01/08/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E9%87%91%E8%9E%8D%E9%A3%8E%E6%8E%A7-%E8%B4%B7%E6%AC%BE%E8%BF%9D%E7%BA%A6%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">零基础入门金融风控-贷款违约预测-赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2020腾讯广告算法大赛-赛后总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结》 — 滑天下之大稽&source=最终成绩：2 / 392比赛地址：https://www.dcjingsai.com/v2/cmptDetail.html?id=410源码：https:..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第二届翼支付杯大数据建模大赛信用风险用户识别-Top2 赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2020/10/01/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E7%BF%BC%E6%94%AF%E4%BB%98%E6%9D%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E4%BF%A1%E7%94%A8%E9%A3%8E%E9%99%A9%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

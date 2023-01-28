@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习,数据挖掘,教育">
+    <meta name="description" content="前言这是我接触数据挖掘后的第一个与之有关的比赛，很标准的表格题，业务背景也不复杂，自我感觉非常适合像我这样的新人去完整地了解，熟悉数据挖掘比赛的整体流程。我也是在这次比赛中慢慢了解特征工程的重要性，也了解并应用了一些基础的特征构造方法，也第一次听说并使用（还没探索其背后的原理）那些个 boosting 模型：xgboost，catboost，lightgbm。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结">
+<meta property="og:url" content="https://logicjake.github.io/2020/01/01/tianyicup-education/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="前言这是我接触数据挖掘后的第一个与之有关的比赛，很标准的表格题，业务背景也不复杂，自我感觉非常适合像我这样的新人去完整地了解，熟悉数据挖掘比赛的整体流程。我也是在这次比赛中慢慢了解特征工程的重要性，也了解并应用了一些基础的特征构造方法，也第一次听说并使用（还没探索其背后的原理）那些个 boosting 模型：xgboost，catboost，lightgbm。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.logicjake.xyz/education_1.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/education_2.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/education_3.jpg">
+<meta property="article:published_time" content="2020-01-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="数据挖掘">
+<meta property="article:tag" content="教育">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.logicjake.xyz/education_1.png">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-01T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题背景"><span class="post-toc-number">2.</span> <span class="post-toc-text">赛题背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题描述"><span class="post-toc-number">3.</span> <span class="post-toc-text">赛题描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据下载"><span class="post-toc-number">4.</span> <span class="post-toc-text">数据下载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">5.</span> <span class="post-toc-text">解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单的数据分析"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">简单的数据分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征工程"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">特征工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础特征"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">基础特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相似考试特征"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">相似考试特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五折交叉标签统计特征"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">五折交叉标签统计特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时序特征"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">时序特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#“嫁接”特征"><span class="post-toc-number">5.2.5.</span> <span class="post-toc-text">“嫁接”特征</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-tianyicup-education" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-01 00:00:00" datetime="2020-01-01T00:00:00.000Z"  itemprop="datePublished">2020-01-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">3.1k</span>字 |
+    阅读时长≈<span class="post-count">10</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是我接触数据挖掘后的第一个与之有关的比赛，很标准的表格题，业务背景也不复杂，自我感觉非常适合像我这样的新人去完整地了解，熟悉数据挖掘比赛的整体流程。我也是在这次比赛中慢慢了解特征工程的重要性，也了解并应用了一些基础的特征构造方法，也第一次听说并使用（还没探索其背后的原理）那些个 boosting 模型：xgboost，catboost，lightgbm。</p>
+<a id="more"></a>
+<p>在比赛中也认识了队友，油菜花和勇哥，团队带来的学习增益和激励增益是庞大的，队友积累的经验和知识也是一笔巨大的财富。</p>
+<p>最终成绩：复赛第三，决赛三等奖。</p>
+<p>代码地址：<a href="https://github.com/LogicJake/tianyicup-education" target="_blank" rel="noopener">https://github.com/LogicJake/tianyicup-education</a></p>
+<h1 id="赛题背景"><a href="#赛题背景" class="headerlink" title="赛题背景"></a>赛题背景</h1><p>随着人工智能(AI)的发展，“AI＋教育”“智慧课堂”等名词逐渐出现在大众视野，越来越多的学校将人工智能助手融入课堂，当下中国正逐步进入“智慧教育”时代。在传统课堂中，由于时间和精力的限制，老师和家长无法兼顾学生的学习状态和学业进展，不会关注大量对于学生能反应其真实问题和情况的数据。</p>
+<p>智慧教育通过将传统教育行业的场景和当下最新的人工智能算法紧密结合，深度挖掘学生在各个知识点上的历史答题表现数据，最终预测学生在考试中的分数表现。</p>
+<h1 id="赛题描述"><a href="#赛题描述" class="headerlink" title="赛题描述"></a>赛题描述</h1><p>请参赛选手，利用比赛对应训练集提供的学生信息、考试知识点信息、考试总得分信息等建立模型，预测测试集中学生在指定考试中的成绩总分，预测目标如下：</p>
+<p>初赛：利用初中最后一年的相关考试和考点信息，预测初中最后一学期倒数第二、第三次考试的成绩。<br>复赛：利用初中 4 年中的相关考试和考点信息，预测初中最后一学期最后一次考试的的成绩。</p>
+<h1 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h1><p><a href="https://www.kesci.com/urls/740cd3de" target="_blank" rel="noopener">初赛数据下载（右键保存下载）</a>，复赛数据不可下载。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="简单的数据分析"><a href="#简单的数据分析" class="headerlink" title="简单的数据分析"></a>简单的数据分析</h2><table>
+<thead>
+<tr>
+<th align="center">课程类别</th>
+<th align="center">课程名称</th>
+<th align="center">知识点数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">course_class1</td>
+<td align="center">course1</td>
+<td align="center">368</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">course2</td>
+<td align="center">367</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">course3</td>
+<td align="center">262</td>
+</tr>
+<tr>
+<td align="center">course_class2</td>
+<td align="center">course4</td>
+<td align="center">219</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">course5</td>
+<td align="center">335</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">course6</td>
+<td align="center">146</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">course7</td>
+<td align="center">316</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">course8</td>
+<td align="center">223</td>
+</tr>
+</tbody></table>
+<p>课程数据包括课程类别，课程名称和所包含的知识点。课程类别只有两类，大概率就是理科和文科的区别。主要难点在于课程的知识点维度非常大，课程考试虽然每次只包含少量的知识点，但是为了向量空间统一，假如采用01向量表示考试的知识点分布情况，该向量将是巨维且十分稀疏的。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/education_1.png" alt="成绩分布" title="">
+                </div>
+                <div class="image-caption">成绩分布</div>
+            </figure></div>
+
+<p>该数据集还有个好处就是数据完整，不存在数据缺失或异常值的情况，除了标签数据‘成绩’出现了0分。从上图成绩分布可以看到，大部分成绩都在60分以上，60以下的就很稀疏。我们将0分看做异常值，可以认为是由学生缺考或者作弊被取消成绩导致的，这部分0分数据不能代表学生正常的考试水平且模型也学习不到这种无规律情况，所以将这部分数据进行剔除。由上面成绩分布可以知道，模型的预测也大概率集中在60以上，所以对于0分样本，计算出来的MSE指标非常大。所以这一题线上线下MSE分数差距比较大，可以确定线上测试集也包含了0分样本。当时曾经和队友讨论能否单独建模预测0分的出现，但效果很差，毕竟学生缺考和作弊行为也没法从给出的数据中推演出来（笑）。</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><h3 id="基础特征"><a href="#基础特征" class="headerlink" title="基础特征"></a>基础特征</h3><p>基础的特征工程比较简单，就是做一下统计特征，比如考试次序，考试的知识点数量和知识点跨度。将知识点映射为其所属段落和类别，又可以构造数量和跨度特征。每个知识点有难度属性，每门考试的知识点占比乘以对于难度，得到衡量考试整体难度的特征。在数据分析中提到，知识点维度巨大且稀疏，假如使用原始01向量代表知识点的分布，会大大降低模型的效率。所以我们使用经典的PCA进行降维，在实际操作中，对考试的知识点占比，知识点种类和段落占比分别降维到60维。当然我们也尝试过使用 deepwalk 之类的 embedding 方法进行降维，但效果不行，在决赛答辩阶段，听其他队伍介绍也使用了 deepwalk， 但当评委问起 embedding 效果时，也回答效果不好。此外还简单使用了交叉特征，如知识点数量和考试难度拼接交叉。</p>
+<h3 id="相似考试特征"><a href="#相似考试特征" class="headerlink" title="相似考试特征"></a>相似考试特征</h3><p>在构造特征的时候，我们认为一个学生面对一门新考试，其成绩应该与和这次考试相似的考试成绩相近。所以我们找出每门考试最相似的三门考试，然后对学生三门考试成绩与考试相似度进行加权求和，得到预估的本次考试成绩，作为一个伪标签。在定义相似时，我们采用了三个指标：知识点分布相似，知识点段落分布相似，知识点类别分布相似。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/education_2.png" alt="相似考试特征构造示意图" title="">
+                </div>
+                <div class="image-caption">相似考试特征构造示意图</div>
+            </figure></div>
+
+<h3 id="五折交叉标签统计特征"><a href="#五折交叉标签统计特征" class="headerlink" title="五折交叉标签统计特征"></a>五折交叉标签统计特征</h3><p>在接触这个比赛之前，我一直认为特征是特征，标签是标签，标签信息是无法使用或丢给模型学习的。这一点本质没错，因为直接使用标签进行学习，必然造成数据泄露，得到一个毫无意义的模型。但只要稍加变通，就能充分使用标签信息。换句话说，我们在评估一个学生的成绩好坏时，常常会说这个学生的平均成绩如何如何，这个时候不也是用了标签信息吗？甚至我们可以因此推断，学生的考试平均成绩，因为是一个强特征，它对预测学生考试成绩时十分重要。因此引入了特征工程中一个比较重要的构造方式，target encode，其在 ctr 类型的比赛中使用广泛。刚刚我们说过，一方面平均成绩很重要，但另一方面引入标签信息会泄露。泄露的本质就是在为样本构造特征的时候，使用了本样本的标签信息，那么为了避免泄露，我们在 target encode 时，只要避免使用本次样本的标签信息就可以了，常见的做法为五折交叉统计，将历史考试成绩数据分为五折，每次用4折构造特征，给训练集中的另外1折。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/education_3.jpg" alt="五折交叉统计(引用自鱼佬知乎专栏)" title="">
+                </div>
+                <div class="image-caption">五折交叉统计(引用自鱼佬知乎专栏)</div>
+            </figure></div>
+
+<p>以此类推，我们不仅可以构造成绩平均值，还可以借助五折框架构造更多关于成绩的统计特征。<br>将构造过程分为对象和统计方法两部分：<br>对象:</p>
+<ul>
+<li>学生所有考试成绩</li>
+<li>学生所有考试排名</li>
+<li>学生考试成绩 / 本次考试平均分</li>
+<li>学生在所有考试上表现出来的抗压能力</li>
+<li>学生在某门课考试上表现出来的抗压能力</li>
+<li>某门课程的所有考试成绩</li>
+<li>学生在某门课程上的考试成绩</li>
+<li>学生在某门课程上某次考试成绩 / 某次考试平均成绩</li>
+<li>某性别学生在某门课程上所有考试成绩  </li>
+</ul>
+<p>统计方法:  </p>
+<ul>
+<li>最大值(max)</li>
+<li>最小值(min)</li>
+<li>平均值(mean)</li>
+<li>标准差(std)</li>
+<li>中值(median)</li>
+<li>变异系数(cv)</li>
+</ul>
+<h3 id="时序特征"><a href="#时序特征" class="headerlink" title="时序特征"></a>时序特征</h3><p>学生最近几次的考试成绩可以反映一个学生最近的学习状态，所以我们可以用最近几次的考试成绩构造时序特征。差分，窗口是时序常用的方法。</p>
+<ul>
+<li>最近三次考试成绩 mean std</li>
+<li>最近三次考试排名 mean std</li>
+<li>最近三次考试成绩差值的平均</li>
+<li>对最近三次考试成绩平均分做窗口为8的平均</li>
+<li>对最近三次考试成绩平均分差值做窗口为3的平均</li>
+<li>最近三次考试成绩</li>
+</ul>
+<h3 id="“嫁接”特征"><a href="#“嫁接”特征" class="headerlink" title="“嫁接”特征"></a>“嫁接”特征</h3><p>“嫁接”学习源于这样一个问题：初赛复赛数据分布不一致。在IJCAL2018比赛中,大家发现前六天和最后一天数据分布不同，大部分人于是用同分布的第七天上半天的数据预测下半天，而植物大佬在这个基础用前六天训练了一个模型，预测第七天得到的 probability 作为第七天模型的 feature ，再用第七天上半天的数据预测下半天，使最后的分数遥遥领先，轻松得到 solo 冠军。套用到这个比赛，复赛利用初中 4 年中的相关考试和考点信息，预测初中最后一学期最后一次考试的的成绩。我们可以认为前三年的考试和最后一年的考试是不同分布，而要预测的最后一次考试和最后一年的考试是同分布的，所以我们利用前三年数据构造部分特征，预测最后一年的考试成绩。利用全量数据构造的特征加上预测的最后一年的考试成绩预测最后一次考试成绩。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>本方案采用五折交叉验证框架，分别训练 lightgbm 和 xgboost 模型，将两个模型的预测分数根据线上模型得分加权融合。模型分数见下表。</p>
+<table>
+<thead>
+<tr>
+<th align="center">模型</th>
+<th align="center">Public分数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">xgboost</td>
+<td align="center">7.289815178</td>
+</tr>
+<tr>
+<td align="center">lightgbm</td>
+<td align="center">7.288464145</td>
+</tr>
+<tr>
+<td align="center">融合</td>
+<td align="center">7.286831301</td>
+</tr>
+</tbody></table>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>赛后拜读了第一大佬的开源。第一名方案对特征分别建模训练，总共分为三部分模型：第一部分模型将成绩预测问题视为回归问题进行分析，第二部分模型将成绩预测问题视为一种短期时间序列预测的问题，第三部分模型对成绩、试卷考点分布、学生考点掌握整体进行数学抽象。在第一部分模型当中，处理考试的知识点特征的时候，采用 NMF 算法进行降维处理。最让我感兴趣的是第三部分模型，在我的方案中，其实对知识点处理的不是很好，无法构造出学生对知识点的掌握情况。第一名方案采用这样一种假设：试卷-考点分布矩阵（exam）乘以学生-考点掌握矩阵（stu）就能得到试卷-学生成绩矩阵（score）。exam 矩阵和 score 矩阵都是已知，所以直接采用优化算法解得 stu 矩阵即可。形式化表示如下：</p>
+<ul>
+<li>score : m * n (exam_number * student_numbers) 试卷-学生成绩矩阵</li>
+<li>exam : m * s(exam_number * course_section) 试卷-考点分布矩阵</li>
+<li>stu : s * n (course_section * student_numbers) 学生-考点掌握矩阵</li>
+</ul>
+<p>其中，m 为各科考试次数，n 为学生数目 s 为各科考点数，目标函数为 <strong>Argmin (Σ(score - exam * stu)^2)</strong>。<br>最后通过学生-考点掌握矩阵乘以要预测的考试知识点分布矩阵，从而得到待预测考试的预测成绩。从模型效果来看，该部分方案十分优秀，线上得分7.33，令人佩服。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/69351598" target="_blank" rel="noopener">2019腾讯广告算法大赛方案分享（初赛冠军）
+</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/51901122" target="_blank" rel="noopener">结构化数据的迁移学习：嫁接学习</a></li>
+<li><a href="https://github.com/yzh1994414/Tianyicup-IntelligentEducation" target="_blank" rel="noopener">第一名方案</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E8%82%B2/" rel="tag">教育</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/01/01/tianyicup-education/&title=《“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/01/01/tianyicup-education/&title=《“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结》 — 滑天下之大稽&source=前言这是我接触数据挖掘后的第一个与之有关的比赛，很标准的表格题，业务背景也不复杂，自我感觉非常适合像我这样的新人去完整地了解，熟悉数据挖掘比赛的整体流程。..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/01/01/tianyicup-education/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/01/01/tianyicup-education/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/01/01/tianyicup-education/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/06/%E7%A7%BB%E5%8A%A8%E5%B9%BF%E5%91%8A%E5%8F%8D%E6%AC%BA%E8%AF%88%E7%AE%97%E6%B3%95%E6%8C%91%E6%88%98%E8%B5%9B%E7%AE%97%E6%B3%95-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2019科大讯飞移动广告反欺诈算法挑战赛算法-亚军赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/28/A_star/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">A*算法理解及代码实现</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/01/01/tianyicup-education/&title=《“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/01/01/tianyicup-education/&title=《“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结》 — 滑天下之大稽&source=前言这是我接触数据挖掘后的第一个与之有关的比赛，很标准的表格题，业务背景也不复杂，自我感觉非常适合像我这样的新人去完整地了解，熟悉数据挖掘比赛的整体流程。..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/01/01/tianyicup-education/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《“添翼”杯人工智能创新应用大赛-智慧教育赛道-三等奖赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/01/01/tianyicup-education/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/01/01/tianyicup-education/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2020/01/01/tianyicup-education/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

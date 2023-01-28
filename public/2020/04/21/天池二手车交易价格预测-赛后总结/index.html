@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>天池二手车交易价格预测-赛后总结 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习,数据挖掘,价格预测">
+    <meta name="description" content="最终成绩：62 &#x2F; 2776比赛地址：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;231784&#x2F;introduction源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;competition_baselines&#x2F;tree&#x2F;master&#x2F;competitions&#x2F;tianchi_car_sale&#x2F;final 比赛介绍本次新人赛是Da">
+<meta property="og:type" content="article">
+<meta property="og:title" content="天池二手车交易价格预测-赛后总结">
+<meta property="og:url" content="https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="最终成绩：62 &#x2F; 2776比赛地址：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;231784&#x2F;introduction源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;competition_baselines&#x2F;tree&#x2F;master&#x2F;competitions&#x2F;tianchi_car_sale&#x2F;final 比赛介绍本次新人赛是Da">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.logicjake.xyz/carsale_data.jpeg">
+<meta property="og:image" content="http://pic.logicjake.xyz/carsale_eda1.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/carsale_eda2.jpeg">
+<meta property="og:image" content="http://pic.logicjake.xyz/carsale_eda3.png">
+<meta property="article:published_time" content="2020-04-21T20:36:11.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="数据挖掘">
+<meta property="article:tag" content="价格预测">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.logicjake.xyz/carsale_data.jpeg">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">天池二手车交易价格预测-赛后总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">天池二手车交易价格预测-赛后总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-21T20:36:11.000Z" itemprop="datePublished" class="page-time">
+  2020-04-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#比赛介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">比赛介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#EDA"><span class="post-toc-number">2.</span> <span class="post-toc-text">EDA</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缺失值处理"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">缺失值处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目标变量分布变换"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">目标变量分布变换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无效特征删除"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">无效特征删除</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#特征工程"><span class="post-toc-number">4.</span> <span class="post-toc-text">特征工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础特征"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">基础特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#匿名特征"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">匿名特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尝试过的无用特征"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">尝试过的无用特征</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模型"><span class="post-toc-number">5.</span> <span class="post-toc-text">模型</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-天池二手车交易价格预测-赛后总结" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">天池二手车交易价格预测-赛后总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-21 20:36:11" datetime="2020-04-21T20:36:11.000Z"  itemprop="datePublished">2020-04-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">1.8k</span>字 |
+    阅读时长≈<span class="post-count">7</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最终成绩：62 / 2776<br>比赛地址：<a href="https://tianchi.aliyun.com/competition/entrance/231784/introduction" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231784/introduction</a><br>源码：<a href="https://github.com/LogicJake/competition_baselines/tree/master/competitions/tianchi_car_sale/final" target="_blank" rel="noopener">https://github.com/LogicJake/competition_baselines/tree/master/competitions/tianchi_car_sale/final</a></p>
+<h1 id="比赛介绍"><a href="#比赛介绍" class="headerlink" title="比赛介绍"></a>比赛介绍</h1><p>本次新人赛是Datawhale与天池联合发起的0基础入门系列赛事第一场 —— 零基础入门数据挖掘之二手车交易价格预测大赛。</p>
+<p>赛题以二手车市场为背景，要求选手预测二手汽车的交易价格，这是一个典型的回归问题。通过这道赛题来引导大家走进AI数据竞赛的世界，主要针对于于竞赛新人进行自我练习、自我提高。</p>
+<p>为了更好的引导大家入门，我们同时为本赛题定制了系列学习方案，其中包括数据科学库、通用流程和baseline方案学习三部分。通过对本方案的完整学习，可以帮助掌握数据竞赛基本技能。同时我们也将提供专属的视频直播学习通道。</p>
+<h1 id="EDA"><a href="#EDA" class="headerlink" title="EDA"></a>EDA</h1><p>详细的 eda 可以参考天才儿童在天池的分享: <a href="https://tianchi.aliyun.com/notebook-ai/detail?postId=95276" target="_blank" rel="noopener">https://tianchi.aliyun.com/notebook-ai/detail?postId=95276</a></p>
+<p>数据集的格式如下：  </p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/carsale_data.jpeg" alt="数据格式" title="">
+                </div>
+                <div class="image-caption">数据格式</div>
+            </figure></div>
+
+
+<p>特征可以分成三类:</p>
+<ul>
+<li>日期特征: regDate, creatDate</li>
+<li>类别特征: name, model, brand, bodyType, fuelType, gearbox, notRepairedDamage, regionCode, seller, offerType</li>
+<li>数值特征: power, kilometer和15个匿名特征</li>
+</ul>
+<p>这里主要关注特征的缺失率和 nunique 信息，主要是看有没有缺失过多或 nunique 太少的特征，一般情况下这两种特征对模型学习起不到作用。数值特征 power 和 kilometer nunique 值比较少，也不知道是不是数据做了处理，抹去了精度。seller 和 offerType 只有两个甚至1个不同的值，所以可以删去, 对模型学习起不到作用，模型的特征重要性也为0。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/carsale_eda1.png" alt="数据统计" title="">
+                </div>
+                <div class="image-caption">数据统计</div>
+            </figure></div>
+
+
+<p>匿名特征的分布见下图，匿名特征在最后的模型重要性都挺高的，可以好好挖掘一下。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/carsale_eda2.jpeg" alt="匿名特征" title="">
+                </div>
+                <div class="image-caption">匿名特征</div>
+            </figure></div>
+
+<h1 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h1><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><p>缺失值主要集中在bodyType，fuelType，gearbox，我的思路是汽车的指标往往和其所属的品牌和车型有较大关系，所以采用该品牌车型下的众数来填补缺失值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">cols &#x3D; [&#39;bodyType&#39;, &#39;fuelType&#39;, &#39;gearbox&#39;]</span><br><span class="line">df_feature[&#39;gp&#39;] &#x3D; df_feature[&#39;brand&#39;].astype(</span><br><span class="line">    &#39;str&#39;) + df_feature[&#39;model&#39;].astype(&#39;str&#39;)</span><br><span class="line">gp_col &#x3D; &#39;gp&#39;</span><br><span class="line"></span><br><span class="line">df_na &#x3D; df_feature[cols].isna()</span><br><span class="line">df_mode &#x3D; df_feature.groupby(gp_col)[cols].agg(</span><br><span class="line">    lambda x: stats.mode(x)[0][0])</span><br><span class="line"></span><br><span class="line">for col in cols:</span><br><span class="line">    na_series &#x3D; df_na[col]</span><br><span class="line">    names &#x3D; list(df_feature.loc[na_series, gp_col])</span><br><span class="line"></span><br><span class="line">    t &#x3D; df_mode.loc[names, col]</span><br><span class="line">    t.index &#x3D; df_feature.loc[na_series, col].index</span><br><span class="line"></span><br><span class="line">    df_feature.loc[na_series, col] &#x3D; t</span><br><span class="line"></span><br><span class="line">del df_feature[&#39;gp&#39;]</span><br><span class="line">df_feature[cols].isnull().sum()</span><br></pre></td></tr></table></figure>
+
+<h2 id="目标变量分布变换"><a href="#目标变量分布变换" class="headerlink" title="目标变量分布变换"></a>目标变量分布变换</h2><p>一般来说对于回归问题，目标变量正态化对模型预测有帮助，下图展示了使用 log1p 前后的价格分布情况。</p>
+<div style="margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/carsale_eda3.png" alt="价格分布" title="">
+                </div>
+                <div class="image-caption">价格分布</div>
+            </figure></div>
+
+<h2 id="无效特征删除"><a href="#无效特征删除" class="headerlink" title="无效特征删除"></a>无效特征删除</h2><p>seller 和 offerType 只有两个甚至1个不同的值，所以可以删去, 对模型学习起不到作用，模型的特征重要性也为0。</p>
+<h1 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h1><h2 id="基础特征"><a href="#基础特征" class="headerlink" title="基础特征"></a>基础特征</h2><p>对于两个日期特征汽车注册日期和开始售卖时间，可以二者做差值计算汽车售卖时的使用时间，我这里使用了年和天来刻画。除此以外，汽车是哪一年注册的对价格的影响也挺大。数据中存在一些异常日期数据：月份为0，处理的时候将其置为1即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_feature[&#39;car_age_day&#39;] &#x3D; ( df_feature[&#39;creatDate&#39;] - df_feature[&#39;regDate&#39;]).dt.days</span><br><span class="line">df_feature[&#39;car_age_year&#39;] &#x3D; round(df_feature[&#39;car_age_day&#39;] &#x2F; 365, 1)</span><br></pre></td></tr></table></figure>
+
+<p>对于类别特征, 可以计算count属性, 反应销售热度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_feature[&#39;name_count&#39;] &#x3D; df_feature.groupby([&#39;name&#39;])[&#39;SaleID&#39;].transform(&#39;count&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>数值特征往往结合类别特征进行统计。比如可以统计不同汽车品牌下匿名特征的统计特征：mean, std, max, min。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">l &#x3D; [&#39;name&#39;, &#39;model&#39;, &#39;brand&#39;, &#39;bodyType&#39;]</span><br><span class="line">for f1 in tqdm(l):</span><br><span class="line">    for f2 in v_cols:</span><br><span class="line">        df_feature &#x3D; stat(df_feature, df_feature, [f1], &#123;</span><br><span class="line">            f2: [&#39;mean&#39;, &#39;max&#39;, &#39;min&#39;, &#39;std&#39;]&#125;)</span><br></pre></td></tr></table></figure>
+<p>目标变量 price 也是数值特征，所以也可以结合类别进行统计，比如计算某品牌，某车型的平均交易价格，这种做法称为目标编码。但需要注意的是，假如使用全局标签信息统计会出现标签泄露的问题，所以一般使用五折统计法，用四折的标签数据做统计给另外一折的数据做特征。</p>
+<h2 id="匿名特征"><a href="#匿名特征" class="headerlink" title="匿名特征"></a>匿名特征</h2><p>简单一点，可以直接统计每辆车15个匿名特征的统计值，得到v_mean，v_max，v_min和v_std。然后再统计汽车交易名称下这四个特征的统计值，这道题，汽车交易名称也是一个很重要的特征。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">v_cols &#x3D; [&#39;v_&#39;+str(i) for i in range(15)]</span><br><span class="line"></span><br><span class="line">df_feature[&#39;v_mean&#39;] &#x3D; df_feature[v_cols].mean(axis&#x3D;1)</span><br><span class="line">df_feature[&#39;v_max&#39;] &#x3D; df_feature[v_cols].max(axis&#x3D;1)</span><br><span class="line">df_feature[&#39;v_min&#39;] &#x3D; df_feature[v_cols].min(axis&#x3D;1)</span><br><span class="line">df_feature[&#39;v_std&#39;] &#x3D; df_feature[v_cols].std(axis&#x3D;1)</span><br><span class="line"></span><br><span class="line">for col in [&#39;v_mean&#39;, &#39;v_max&#39;, &#39;v_min&#39;, &#39;v_std&#39;]:</span><br><span class="line">    df_feature[f&#39;name_&#123;col&#125;_mean&#39;] &#x3D; df_feature.groupby(&#39;name&#39;)[</span><br><span class="line">        col].transform(&#39;mean&#39;)</span><br><span class="line">    df_feature[f&#39;name_&#123;col&#125;_std&#39;] &#x3D; df_feature.groupby(&#39;name&#39;)[</span><br><span class="line">        col].transform(&#39;std&#39;)</span><br><span class="line">    df_feature[f&#39;name_&#123;col&#125;_max&#39;] &#x3D; df_feature.groupby(&#39;name&#39;)[</span><br><span class="line">        col].transform(&#39;max&#39;)</span><br><span class="line">    df_feature[f&#39;name_&#123;col&#125;_min&#39;] &#x3D; df_feature.groupby(&#39;name&#39;)[</span><br><span class="line">        col].transform(&#39;min&#39;)</span><br></pre></td></tr></table></figure>
+<p>匿名特征无法知道具体的业务含义，所以只能梭哈操作，写了个程序对匿名特征进行二阶或三阶组合，计算相加和相减，最后筛选保留以下特征：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">df_feature[&#39;v_0_add_v_4&#39;] &#x3D; df_feature[&#39;v_0&#39;] + df_feature[&#39;v_4&#39;]</span><br><span class="line">df_feature[&#39;v_0_add_v_8&#39;] &#x3D; df_feature[&#39;v_0&#39;] + df_feature[&#39;v_8&#39;]</span><br><span class="line">df_feature[&#39;v_1_add_v_3&#39;] &#x3D; df_feature[&#39;v_1&#39;] + df_feature[&#39;v_3&#39;]</span><br><span class="line">df_feature[&#39;v_1_add_v_4&#39;] &#x3D; df_feature[&#39;v_1&#39;] + df_feature[&#39;v_4&#39;]</span><br><span class="line">df_feature[&#39;v_1_add_v_5&#39;] &#x3D; df_feature[&#39;v_1&#39;] + df_feature[&#39;v_5&#39;]</span><br><span class="line">df_feature[&#39;v_1_add_v_12&#39;] &#x3D; df_feature[&#39;v_1&#39;] + df_feature[&#39;v_12&#39;]</span><br><span class="line">df_feature[&#39;v_2_add_v_3&#39;] &#x3D; df_feature[&#39;v_2&#39;] + df_feature[&#39;v_3&#39;]</span><br><span class="line">df_feature[&#39;v_4_add_v_11&#39;] &#x3D; df_feature[&#39;v_4&#39;] + df_feature[&#39;v_11&#39;]</span><br><span class="line">df_feature[&#39;v_4_add_v_12&#39;] &#x3D; df_feature[&#39;v_4&#39;] + df_feature[&#39;v_12&#39;]</span><br><span class="line">df_feature[&#39;v_0_add_v_12_add_v_14&#39;] &#x3D; df_feature[&#39;v_0&#39;] + \</span><br><span class="line">    df_feature[&#39;v_12&#39;] + df_feature[&#39;v_14&#39;]</span><br><span class="line"></span><br><span class="line">df_feature[&#39;v_4_add_v_9_minu_v_13&#39;] &#x3D; df_feature[&#39;v_4&#39;] + \</span><br><span class="line">    df_feature[&#39;v_9&#39;] - df_feature[&#39;v_13&#39;]</span><br><span class="line">df_feature[&#39;v_2_add_v_4_minu_v_11&#39;] &#x3D; df_feature[&#39;v_2&#39;] + \</span><br><span class="line">    df_feature[&#39;v_4&#39;] - df_feature[&#39;v_11&#39;]</span><br><span class="line">df_feature[&#39;v_2_add_v_3_minu_v_11&#39;] &#x3D; df_feature[&#39;v_2&#39;] + \</span><br><span class="line">    df_feature[&#39;v_3&#39;] - df_feature[&#39;v_11&#39;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="尝试过的无用特征"><a href="#尝试过的无用特征" class="headerlink" title="尝试过的无用特征"></a>尝试过的无用特征</h2><p>论坛分享了不少结合业务的特征，但我自己尝试后发现效果都不行，这也是让我很困惑的地方。官方赛题分享提到可以截取regionCode，提取城市信息，但 regionCode 已经被编码脱敏成0~8121的数字，已经无法进行信息提取。</p>
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p>两个树模型：lgb 和 xgb 分别预测，然后根据得分进行简单的加权，按照 0.45*xgb_pred+0.55 *lgb_pred 得到最后的汽车预测价格。最后线上得分433，rank：62 / 2776。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B/" rel="tag">价格预测</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《天池二手车交易价格预测-赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《天池二手车交易价格预测-赛后总结》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《天池二手车交易价格预测-赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/06/16/KDD-debias-TOP13/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/16/2020%E8%85%BE%E8%AE%AF%E6%B8%B8%E6%88%8F%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E7%AB%9E%E8%B5%9B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%84-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2020腾讯游戏安全技术竞赛机器学习组-TOP 4赛后总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《天池二手车交易价格预测-赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&title=《天池二手车交易价格预测-赛后总结》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《天池二手车交易价格预测-赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Connect X 实践 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="强化学习">
+    <meta name="description" content="游戏目标为在你的对手之前，在游戏板上水平、垂直或对角地放置连续4个跳棋。轮到你时，把你的一个跳棋“投”到棋盘一列中，棋子会掉落在这一列最底部的空位置。 random随机选取尚有空位置的一列进行投放。 123def my_agent(obs, config):    from random import choice    return choice([c for c in range(config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Connect X 实践">
+<meta property="og:url" content="https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="游戏目标为在你的对手之前，在游戏板上水平、垂直或对角地放置连续4个跳棋。轮到你时，把你的一个跳棋“投”到棋盘一列中，棋子会掉落在这一列最底部的空位置。 random随机选取尚有空位置的一列进行投放。 123def my_agent(obs, config):    from random import choice    return choice([c for c in range(config">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/LogicJake/imghub/master/minmax%E5%8F%8D%E5%90%91.png">
+<meta property="article:published_time" content="2021-10-08T20:55:47.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LogicJake/imghub/master/minmax%E5%8F%8D%E5%90%91.png">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Connect X 实践</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Connect X 实践</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-10-08T20:55:47.000Z" itemprop="datePublished" class="page-time">
+  2021-10-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#random"><span class="post-toc-number">1.</span> <span class="post-toc-text">random</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#minimax"><span class="post-toc-number">2.</span> <span class="post-toc-text">minimax</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#negamax"><span class="post-toc-number">3.</span> <span class="post-toc-text">negamax</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-connectx实践" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Connect X 实践</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-10-08 20:55:47" datetime="2021-10-08T20:55:47.000Z"  itemprop="datePublished">2021-10-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">1.3k</span>字 |
+    阅读时长≈<span class="post-count">6</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>游戏目标为在你的对手之前，在游戏板上水平、垂直或对角地放置连续4个跳棋。轮到你时，把你的一个跳棋“投”到棋盘一列中，棋子会掉落在这一列最底部的空位置。</p>
+<h3 id="random"><a href="#random" class="headerlink" title="random"></a>random</h3><p>随机选取尚有空位置的一列进行投放。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_agent</span><span class="params">(obs, config)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">    <span class="keyword">return</span> choice([c <span class="keyword">for</span> c <span class="keyword">in</span> range(config.columns) <span class="keyword">if</span> obs.board[c] == <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="minimax"><a href="#minimax" class="headerlink" title="minimax"></a>minimax</h3><p>适用于零和博弈场景，每次操作即搜索选择对自己有利的情况，如果我们令甲胜的局面值为1，乙胜的局面值为-1，而和局的值为0。当轮到甲走时，甲定会选择子节点值最大的走法；而轮到乙时，乙则会选择子节点值最小的走法。所以对于中间节点的值有如下计算方法：如果该节点所对应的局面轮到甲走棋，则该节点的值是其所有子节点中值最大的一个的值。而如果该节点所对应的局面轮到乙走棋，则该节点的值是其所有子节点中值最小的一个的值，这就是minimax的搜索思想。minimax算法本质还是穷尽，解空间大的时候不适用。此时可以约束game tree的深度，另外不一定需要知道终局分数，也能对当前棋面做出大致评估。在下面的代码中，棋面的评估仅被分为输、赢、平3种状态。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/LogicJake/imghub/master/minmax反向.png" alt="minmax反向" title="">
+                </div>
+                <div class="image-caption">minmax反向</div>
+            </figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minimax_agent</span><span class="params">(obs, config)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> inf <span class="keyword">as</span> infinity</span><br><span class="line">    <span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">    <span class="comment"># 电脑</span></span><br><span class="line">    COMP = <span class="number">2</span></span><br><span class="line">    <span class="comment"># 玩家</span></span><br><span class="line">    HUMAN = <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    columns = config.columns</span><br><span class="line">    rows = config.rows</span><br><span class="line">    <span class="comment"># 因为是提前一个落子检查，所以只需要满足inarow - 1个连续</span></span><br><span class="line">    inarow = config.inarow - <span class="number">1</span></span><br><span class="line">    size = rows * columns</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_win</span><span class="params">(board, player, column)</span>:</span></span><br><span class="line">        <span class="comment"># 找到当前列的落子位置</span></span><br><span class="line">        row = max([r <span class="keyword">for</span> r <span class="keyword">in</span> range(rows) <span class="keyword">if</span> board[column + (r * columns)] == <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(offset_row, offset_column)</span>:</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, inarow + <span class="number">1</span>):</span><br><span class="line">                r = row + offset_row * i</span><br><span class="line">                c = column + offset_column * i</span><br><span class="line">                <span class="comment"># 停止条件</span></span><br><span class="line">                <span class="keyword">if</span> (</span><br><span class="line">                    r &lt; <span class="number">0</span></span><br><span class="line">                    <span class="keyword">or</span> r &gt;= rows</span><br><span class="line">                    <span class="keyword">or</span> c &lt; <span class="number">0</span></span><br><span class="line">                    <span class="keyword">or</span> c &gt;= columns</span><br><span class="line">                    <span class="keyword">or</span> board[c + (r * columns)] != player</span><br><span class="line">                ):</span><br><span class="line">                    <span class="keyword">return</span> i - <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> inarow</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            count(<span class="number">1</span>, <span class="number">0</span>) &gt;= inarow  <span class="comment"># 垂直方向，向下搜</span></span><br><span class="line">            <span class="keyword">or</span> (count(<span class="number">0</span>, <span class="number">1</span>) + count(<span class="number">0</span>, <span class="number">-1</span>)) &gt;= inarow  <span class="comment"># 水平方向，左右两边搜</span></span><br><span class="line">            <span class="keyword">or</span> (count(<span class="number">-1</span>, <span class="number">-1</span>) + count(<span class="number">1</span>, <span class="number">1</span>)) &gt;= inarow  <span class="comment"># 主对角线方向</span></span><br><span class="line">            <span class="keyword">or</span> (count(<span class="number">-1</span>, <span class="number">1</span>) + count(<span class="number">1</span>, <span class="number">-1</span>)) &gt;= inarow  <span class="comment"># 次对角线方向</span></span><br><span class="line">        )</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(board, column, player)</span>:</span></span><br><span class="line">        row = max([r <span class="keyword">for</span> r <span class="keyword">in</span> range(rows) <span class="keyword">if</span> board[column + (r * columns)] == <span class="number">0</span>])</span><br><span class="line">        board[column + (row * columns)] = player</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minimax</span><span class="params">(board, player, depth)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> player == HUMAN:</span><br><span class="line">            best_score = -infinity</span><br><span class="line">            best_column = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            best_score = infinity</span><br><span class="line">            best_column = <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 递归终止条件1 深度达到设定值</span></span><br><span class="line">        <span class="keyword">if</span> depth == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> [<span class="number">0</span>, <span class="literal">None</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 递归终止条件2 一方获胜</span></span><br><span class="line">        <span class="keyword">for</span> column <span class="keyword">in</span> range(columns):</span><br><span class="line">            <span class="comment"># 遍历可选列，检查是否可以获胜</span></span><br><span class="line">            <span class="keyword">if</span> board[column] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> is_win(board, player, column):</span><br><span class="line">                    <span class="comment">## 玩家获胜</span></span><br><span class="line">                    <span class="keyword">if</span> player == HUMAN:</span><br><span class="line">                        <span class="keyword">return</span> [<span class="number">1</span>, column]</span><br><span class="line">                    <span class="comment">## 电脑获胜</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">return</span> [<span class="number">-1</span>, column]</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">for</span> column <span class="keyword">in</span> range(columns):</span><br><span class="line">            <span class="keyword">if</span> board[column] == <span class="number">0</span>:</span><br><span class="line">                next_board = board[:]</span><br><span class="line">                play(next_board, column, player)</span><br><span class="line">                <span class="comment"># 向后看，计算分数</span></span><br><span class="line">                score, _ = minimax(next_board, player % <span class="number">2</span> + <span class="number">1</span>, depth - <span class="number">1</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> player == HUMAN:</span><br><span class="line">                    <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">                        best_score = score</span><br><span class="line">                        best_column = column</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> score &lt; best_score:</span><br><span class="line">                        best_score = score</span><br><span class="line">                        best_column = column</span><br><span class="line">                        </span><br><span class="line">        <span class="keyword">return</span> [best_score, best_column]</span><br><span class="line">    </span><br><span class="line">    max_depth = <span class="number">4</span></span><br><span class="line">    _, column = minimax(obs.board[:], HUMAN, max_depth)</span><br><span class="line">    <span class="comment"># 兜底策略，如果minimax没找到解，则使用random算法</span></span><br><span class="line">    <span class="keyword">if</span> column == <span class="literal">None</span>:</span><br><span class="line">        column = choice([c <span class="keyword">for</span> c <span class="keyword">in</span> range(columns) <span class="keyword">if</span> obs.board[c] == <span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> column</span><br></pre></td></tr></table></figure>
+
+<p>[1] <a href="https://www.bilibili.co7m/video/BV1Eb411a7Vb" target="_blank" rel="noopener">https://www.bilibili.co7m/video/BV1Eb411a7Vb</a><br>[2] <a href="https://github.com/Cledersonbc/tic-tac-toe-minimax" target="_blank" rel="noopener">https://github.com/Cledersonbc/tic-tac-toe-minimax</a>  </p>
+<h3 id="negamax"><a href="#negamax" class="headerlink" title="negamax"></a>negamax</h3><p>negamax是minimax的改进版，在效果上没有改进，仅仅进行了视角的统一。在minimax算法中，我们和对手之间是对立的视角，所以一个是最大化，一个是最小化。但是在negamax进行了视角的统一，大家追求的都是最大化。因此就有两个改进点，第一个就是当有一方胜利是，可以不加角色区分都返回1；第二个就在于对子节点的score进行选择时，统一最大化返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">negamax_agent</span><span class="params">(obs, config)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> inf <span class="keyword">as</span> infinity</span><br><span class="line">    <span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">    <span class="comment"># 电脑</span></span><br><span class="line">    COMP = <span class="number">2</span></span><br><span class="line">    <span class="comment"># 玩家</span></span><br><span class="line">    HUMAN = <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    columns = config.columns</span><br><span class="line">    rows = config.rows</span><br><span class="line">    <span class="comment"># 因为是提前一个落子检查，所以只需要满足inarow - 1个连续</span></span><br><span class="line">    inarow = config.inarow - <span class="number">1</span></span><br><span class="line">    size = rows * columns</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_win</span><span class="params">(board, player, column)</span>:</span></span><br><span class="line">        <span class="comment"># 找到当前列的落子位置</span></span><br><span class="line">        row = max([r <span class="keyword">for</span> r <span class="keyword">in</span> range(rows) <span class="keyword">if</span> board[column + (r * columns)] == <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(offset_row, offset_column)</span>:</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, inarow + <span class="number">1</span>):</span><br><span class="line">                r = row + offset_row * i</span><br><span class="line">                c = column + offset_column * i</span><br><span class="line">                <span class="comment"># 停止条件</span></span><br><span class="line">                <span class="keyword">if</span> (</span><br><span class="line">                    r &lt; <span class="number">0</span></span><br><span class="line">                    <span class="keyword">or</span> r &gt;= rows</span><br><span class="line">                    <span class="keyword">or</span> c &lt; <span class="number">0</span></span><br><span class="line">                    <span class="keyword">or</span> c &gt;= columns</span><br><span class="line">                    <span class="keyword">or</span> board[c + (r * columns)] != player</span><br><span class="line">                ):</span><br><span class="line">                    <span class="keyword">return</span> i - <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> inarow</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            count(<span class="number">1</span>, <span class="number">0</span>) &gt;= inarow  <span class="comment"># 垂直方向，向下搜</span></span><br><span class="line">            <span class="keyword">or</span> (count(<span class="number">0</span>, <span class="number">1</span>) + count(<span class="number">0</span>, <span class="number">-1</span>)) &gt;= inarow  <span class="comment"># 水平方向，左右两边搜</span></span><br><span class="line">            <span class="keyword">or</span> (count(<span class="number">-1</span>, <span class="number">-1</span>) + count(<span class="number">1</span>, <span class="number">1</span>)) &gt;= inarow  <span class="comment"># 主对角线方向</span></span><br><span class="line">            <span class="keyword">or</span> (count(<span class="number">-1</span>, <span class="number">1</span>) + count(<span class="number">1</span>, <span class="number">-1</span>)) &gt;= inarow  <span class="comment"># 次对角线方向</span></span><br><span class="line">        )</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(board, column, player)</span>:</span></span><br><span class="line">        row = max([r <span class="keyword">for</span> r <span class="keyword">in</span> range(rows) <span class="keyword">if</span> board[column + (r * columns)] == <span class="number">0</span>])</span><br><span class="line">        board[column + (row * columns)] = player</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">negamax</span><span class="params">(board, player, depth)</span>:</span></span><br><span class="line">        <span class="comment"># 递归终止条件1 深度达到设定值</span></span><br><span class="line">        <span class="keyword">if</span> depth == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> [<span class="number">0</span>, <span class="literal">None</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 递归终止条件2 一方获胜</span></span><br><span class="line">        <span class="keyword">for</span> column <span class="keyword">in</span> range(columns):</span><br><span class="line">            <span class="comment"># 遍历可选列，检查是否可以获胜</span></span><br><span class="line">            <span class="keyword">if</span> board[column] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> is_win(board, player, column):</span><br><span class="line">                    <span class="keyword">return</span> [<span class="number">1</span>, column]</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">        best_score = -infinity</span><br><span class="line">        best_column = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> column <span class="keyword">in</span> range(columns):</span><br><span class="line">            <span class="keyword">if</span> board[column] == <span class="number">0</span>:</span><br><span class="line">                next_board = board[:]</span><br><span class="line">                play(next_board, column, player)</span><br><span class="line">                <span class="comment"># 向后看，计算分数</span></span><br><span class="line">                score, _ = negamax(next_board, player % <span class="number">2</span> + <span class="number">1</span>, depth - <span class="number">1</span>)</span><br><span class="line">                score = -score</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> score &gt; best_score:</span><br><span class="line">                    best_score = score</span><br><span class="line">                    best_column = column</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [best_score, best_column]</span><br><span class="line">    </span><br><span class="line">    max_depth = <span class="number">4</span></span><br><span class="line">    _, column = negamax(obs.board[:], HUMAN, max_depth)</span><br><span class="line">    <span class="comment"># 兜底策略，如果minimax没找到解，则使用random算法</span></span><br><span class="line">    <span class="keyword">if</span> column == <span class="literal">None</span>:</span><br><span class="line">        column = choice([c <span class="keyword">for</span> c <span class="keyword">in</span> range(columns) <span class="keyword">if</span> obs.board[c] == <span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> column</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/&title=《Connect X 实践》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/&title=《Connect X 实践》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Connect X 实践》 — 滑天下之大稽&url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/12/01/%E7%AE%97%E6%B3%95%E7%A7%8B%E6%8B%9B%E4%B8%8A%E5%B2%B8%E5%8E%86%E7%A8%8B%E2%80%94%E5%A4%87%E6%88%98%E5%AE%9E%E4%B9%A0%E7%A7%8B%E6%8B%9B/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">推荐算法上岸历程—备战实习秋招</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/09/20/%E4%B8%80%E7%82%B9%E8%B5%84%E8%AE%AF%E6%8A%80%E6%9C%AF%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%B5%9BCTR%E8%B5%9B%E9%81%93-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">一点资讯技术编程大赛CTR赛道-赛后总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/&title=《Connect X 实践》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/&title=《Connect X 实践》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Connect X 实践》 — 滑天下之大稽&url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2021/10/08/connectx%E5%AE%9E%E8%B7%B5/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>零基础入门推荐系统新闻推荐正式赛-赛后分享 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="推荐系统,召回,排序,新闻推荐">
+    <meta name="description" content="最终成绩：2 &#x2F; 5272比赛地址：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;531842源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;tianchi-news-recommendation 赛题背景赛题以新闻APP中的新闻推荐为背景，要求选手根据用户历史浏览点击新闻文章的数据信息预测用户未来点击行为，即用户的最后一次点击的新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="零基础入门推荐系统新闻推荐正式赛-赛后分享">
+<meta property="og:url" content="https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="最终成绩：2 &#x2F; 5272比赛地址：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;531842源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;tianchi-news-recommendation 赛题背景赛题以新闻APP中的新闻推荐为背景，要求选手根据用户历史浏览点击新闻文章的数据信息预测用户未来点击行为，即用户的最后一次点击的新">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/LogicJake/imghub/master/new1.png">
+<meta property="article:published_time" content="2021-02-07T13:20:01.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.904Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="推荐系统">
+<meta property="article:tag" content="召回">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="新闻推荐">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LogicJake/imghub/master/new1.png">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">零基础入门推荐系统新闻推荐正式赛-赛后分享</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">零基础入门推荐系统新闻推荐正式赛-赛后分享</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-02-07T13:20:01.000Z" itemprop="datePublished" class="page-time">
+  2021-02-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">赛题背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据表"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">数据表</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方案总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">方案总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#召回"><span class="post-toc-number">4.</span> <span class="post-toc-text">召回</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进版-itemcf"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">改进版 itemcf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于网络关系的召回"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">基于网络关系的召回</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#w2v-向量召回"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">w2v 向量召回</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#召回合并"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">召回合并</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#排序"><span class="post-toc-number">5.</span> <span class="post-toc-text">排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征工程"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">特征工程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">模型</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-零基础入门推荐系统新闻推荐正式赛-赛后分享" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">零基础入门推荐系统新闻推荐正式赛-赛后分享</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-02-07 13:20:01" datetime="2021-02-07T13:20:01.000Z"  itemprop="datePublished">2021-02-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">2.4k</span>字 |
+    阅读时长≈<span class="post-count">8</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最终成绩：2 / 5272<br>比赛地址：<a href="https://tianchi.aliyun.com/competition/entrance/531842" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/531842</a><br>源码：<a href="https://github.com/LogicJake/tianchi-news-recommendation" target="_blank" rel="noopener">https://github.com/LogicJake/tianchi-news-recommendation</a></p>
+<h1 id="赛题背景"><a href="#赛题背景" class="headerlink" title="赛题背景"></a>赛题背景</h1><p>赛题以新闻APP中的新闻推荐为背景，要求选手根据用户历史浏览点击新闻文章的数据信息预测用户未来点击行为，即用户的最后一次点击的新闻文章，测试集对最后一次点击行为进行了剔除。</p>
+<a id="more"></a>
+
+<h1 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h1><p>赛题以预测用户未来点击新闻文章为任务，数据集报名后可见并可下载，该数据来自某新闻APP平台的用户交互数据，包括30万用户，近300万次点击，共36万多篇不同的新闻文章，同时每篇新闻文章有对应的embedding向量表示。为了保证比赛的公平性，将会从中抽取20万用户的点击日志数据作为训练集，5万用户的点击日志数据作为测试集A，5万用户的点击日志数据作为测试集B。</p>
+<h2 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h2><p>train_click_log.csv：训练集用户点击日志<br>testA_click_log.csv：测试集用户点击日志<br>articles.csv：新闻文章信息数据表<br>articles_emb.csv：新闻文章embedding向量表示<br>sample_submit.csv：提交样例文件  </p>
+<details>
+<summary>详细数据字段说明</summary>
+
+<table>
+<thead>
+<tr>
+<th align="center">Field</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">user_id</td>
+<td align="center">用户id</td>
+</tr>
+<tr>
+<td align="center">click_article_id</td>
+<td align="center">点击文章id</td>
+</tr>
+<tr>
+<td align="center">click_timestamp</td>
+<td align="center">点击时间戳</td>
+</tr>
+<tr>
+<td align="center">click_environment</td>
+<td align="center">点击环境</td>
+</tr>
+<tr>
+<td align="center">click_deviceGroup</td>
+<td align="center">点击设备组</td>
+</tr>
+<tr>
+<td align="center">click_os</td>
+<td align="center">点击操作系统</td>
+</tr>
+<tr>
+<td align="center">click_country</td>
+<td align="center">点击城市</td>
+</tr>
+<tr>
+<td align="center">click_region</td>
+<td align="center">点击地区</td>
+</tr>
+<tr>
+<td align="center">click_referrer_type</td>
+<td align="center">点击来源类型</td>
+</tr>
+<tr>
+<td align="center">article_id</td>
+<td align="center">文章id，与click_article_id相对应</td>
+</tr>
+<tr>
+<td align="center">category_id</td>
+<td align="center">文章类型id</td>
+</tr>
+<tr>
+<td align="center">created_at_ts</td>
+<td align="center">文章创建时间戳</td>
+</tr>
+<tr>
+<td align="center">words_count</td>
+<td align="center">文章字数</td>
+</tr>
+<tr>
+<td align="center">emb_1,emb_2,…,emb_249</td>
+<td align="center">文章embedding向量表示</td>
+</tr>
+</tbody></table>
+</details>  
+
+
+<h1 id="方案总结"><a href="#方案总结" class="headerlink" title="方案总结"></a>方案总结</h1><p>为了构造稳定的线下验证，从训练集用户中随机采样5w个用户作为作为线下验证集用户，将验证集用户的最后一次点击记录从原训练集的点击日志中剔除。合并这时候的训练集点击日志和测试集点击日志作为总的历史点击记录，预测验证集用户的最后一次点击作为线下验证，实验证明该验证方式很稳定，和线上指标同增同减且相差不大。</p>
+<h1 id="召回"><a href="#召回" class="headerlink" title="召回"></a>召回</h1><p>本方案采用了3路召回，通过不同策略的差异性提高整体新闻的召回率。新闻推荐有强热点依赖，用户往往会短时间内点击许多相关新闻，所以需要从历史点击序列中挖掘新闻之间的关系信息。</p>
+<h2 id="改进版-itemcf"><a href="#改进版-itemcf" class="headerlink" title="改进版 itemcf"></a>改进版 itemcf</h2><p>原始的 itemcf 将用户点击过的新闻看做一个无序的集合，但在实际应用中，应该考虑点击次序带来的影响。在计算同一序列中两个新闻的相似度时，不仅需要考虑共现次数，也需要考虑两个新闻之间的次序关系。同一点击序列中两个新闻位置越远，相关性应该减小。新闻对顺序和逆序的权重也不同，在点击序列A，B，C中，”BC”这样的正序权重应该大于”BA”这样的逆序权重。更多关于 itemcf 的改进可以看之前 KDD CUP 的相关方案总结。</p>
+<blockquote>
+<p>日志中所有出现过的新闻只有3w多个，而整个新闻库中却有30多万。用户可能会点击一些没有在日志数据中出现的新闻。从线下验证集来看，大概有12%待预测新闻没有出现在历史点击记录里。为了缓解冷启动问题，在计算新闻相似度的时候可以考虑加入内容相似度。但是基于数据集给的新闻 embedding 向量表示做向量召回的效果很差劲，所以最后在 itemcf 中没有引入新闻的内容相似度。</p>
+</blockquote>
+<p>建立新闻的相似度关系后，进入到召回阶段，根据用户的历史点击新闻，结合相似度选择 TOP100 关联新闻。选取关联新闻时，除了考虑和历史点击新闻的相似度，还要加入位置距离衰减。新闻点击是强热点相关，所以历史点击新闻对下一次点击预测的影响传播不会太远。在实际测试中，利用所有历史点击新闻做召回，hitrate_5 指标只有0.20，限定只用最近点击的两个新闻来做召回的话，可以大幅提升至0.33。</p>
+<h2 id="基于网络关系的召回"><a href="#基于网络关系的召回" class="headerlink" title="基于网络关系的召回"></a>基于网络关系的召回</h2><p>该方法源自”Bipartite network projection and personal recommendation”，代码采用自<a href="https://tianchi.aliyun.com/forum/postDetail?postId=104936" target="_blank" rel="noopener">论坛开源</a>。该方法也分为两个阶段，新闻相似度计算和基于用户点击历史的新闻召回。在相似度计算阶段，通过用户将两个新闻连接起来。计算相似度时考虑两种因素：1)两个新闻的共同被点击用户过多，则相似度减少；2)共同被点击用户的点击新闻过多，相似度也要减少。基于用户点击历史的新闻召回和 itemcf 类似，不再赘述。类似地，在召回时只利用了最新一次点击的新闻做召回，相较于利用全量历史记录召回，效果提高了10%。</p>
+<h2 id="w2v-向量召回"><a href="#w2v-向量召回" class="headerlink" title="w2v 向量召回"></a>w2v 向量召回</h2><p>除了使用人工规则从序列中提取相似度，我们还可以使用序列学习模型 Word2Vec 为新闻学习向量表示。将用户的新闻点击序列作为句子喂到 Word2Vec 模型，然后选取和用户最近点击新闻最相似的关联新闻。向量学习和寻找相似全部使用 gensim 库的 Word2Vec 实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 模型训练</span><br><span class="line">model &#x3D; Word2Vec(sentences&#x3D;sentences, size&#x3D;256,  window&#x3D;3,  min_count&#x3D;1, sg&#x3D;1, hs&#x3D;0, seed&#x3D;seed, negative&#x3D;5, workers&#x3D;10, iter&#x3D;1)</span><br></pre></td></tr></table></figure>
+
+<h2 id="召回合并"><a href="#召回合并" class="headerlink" title="召回合并"></a>召回合并</h2><p>多路召回之间肯定存在重复召回的情况，这也是为什么召回策略讲究差异性，其实就是为了减少重复召回的数量。利用重复召回的新闻数量占该路召回数量之比做相似度参考，3路召回的相似度见热力图。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/LogicJake/imghub/master/new1.png" alt="图1 召回方式相似度" title="">
+                </div>
+                <div class="image-caption">图1 召回方式相似度</div>
+            </figure>
+
+<p>重复被召回的新闻在多个召回方式中的得分是不一样的，得分是排序时的强特，需要进行得分合并。对各个召回结果，以用户为单位进行最大最小归一化。分数合并测试了sum，mean和max，效果对比见下表。max丢失的消息较多，mean对重复次数多的新闻不公平。  </p>
+<table>
+<thead>
+<tr>
+<th align="center">合并方式</th>
+<th align="center">hitrate_5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sum</td>
+<td align="center">0.3700630930498286</td>
+</tr>
+<tr>
+<td align="center">mean</td>
+<td align="center">0.33700134134830345</td>
+</tr>
+<tr>
+<td align="center">max</td>
+<td align="center">0.35155745441899744</td>
+</tr>
+</tbody></table>
+<p>去重之后，平均每个用户召回到153个新闻。删除没有召回到真实点击的验证集用户，减少了无用负样本的数量，也提高了后续排序模型的效果，但是在计算线下指标的时候这部分用户的数量要包括进去，否则指标会虚高。合并前后各召回方式指标如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">hitrate_5</th>
+<th align="center">mrr_5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">itemcf</td>
+<td align="center">0.33628098762978786</td>
+<td align="center">0.19792256611521228</td>
+</tr>
+<tr>
+<td align="center">binetwork</td>
+<td align="center">0.3127825525361419</td>
+<td align="center">0.19114627320448885</td>
+</tr>
+<tr>
+<td align="center">w2v</td>
+<td align="center">0.15706195041979235</td>
+<td align="center">0.08342813850663192</td>
+</tr>
+<tr>
+<td align="center">合并</td>
+<td align="center">0.3667842416414129</td>
+<td align="center">0.2195861692085987</td>
+</tr>
+</tbody></table>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>本方案把排序建模为二分类任务，分为特征工程和二分类模型预测两部分。特征工程主要围绕召回策略进行，保证实时性召回的新闻能在排序阶段被推出去。模型采用 LGB 模型。</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>特征工程分为3类：新闻特征，用户特征，用户-新闻交互特征。数据集本身给出的属性信息较少，所以特征工程主要围绕交互属性展开。</p>
+<p>新闻特征包括：</p>
+<ul>
+<li>新闻字数</li>
+<li>新闻创建时间</li>
+<li>新闻被阅读数量</li>
+</ul>
+<p>用户特征包括：</p>
+<ul>
+<li>用户点击新闻的创建时间差的平均值</li>
+<li>用户点击新闻的点击时间差的平均值</li>
+<li>用户点击新闻的点击-创建时间差的统计值：mean，std</li>
+<li>用户点击新闻的 click_datetime_hour 统计值</li>
+<li>用户点击新闻的字数统计值</li>
+<li>用户点击新闻的创建时间统计值</li>
+<li>用户点击新闻的点击时间统计值</li>
+<li>用户新闻阅读数量</li>
+<li>用户某种类新闻阅读数量</li>
+</ul>
+<p>交互特征主要基于之前的召回策略进行，通过保存召回阶段的新闻相似度信息或向量，我们能够间接或直接得到用户对待预测新闻的评分。基于 itemcf， 网络关系和 w2v 的召回得到的只是新闻之间的相似度，需要和用户的历史点击新闻计算间接得到用户-新闻评分，采用如下方式：</p>
+<ul>
+<li>待预测新闻和用户所有历史点击新闻相似度按次序加权求和</li>
+<li>待预测新闻和用户最近一次点击新闻相似度</li>
+</ul>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>模型采用单模 LGB 进行预测，特征重要性见下表。排序之后，hitrate_5 涨到0.4394406080778976，mrr_5 涨到0.26552279464123835。</p>
+<table>
+<thead>
+<tr>
+<th align="center">feature_name</th>
+<th align="center">gain</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sim_score</td>
+<td align="center">557646.594097</td>
+</tr>
+<tr>
+<td align="center">user_last_click_timestamp_diff</td>
+<td align="center">192108.389757</td>
+</tr>
+<tr>
+<td align="center">user_last_click_article_itemcf_sim</td>
+<td align="center">124281.856153</td>
+</tr>
+<tr>
+<td align="center">user_last_click_article_w2v_sim</td>
+<td align="center">73809.001815</td>
+</tr>
+<tr>
+<td align="center">user_clicked_article_itemcf_sim_sum</td>
+<td align="center">65907.806015</td>
+</tr>
+<tr>
+<td align="center">article_id_cnt</td>
+<td align="center">65031.067219</td>
+</tr>
+<tr>
+<td align="center">user_last_click_created_at_ts_diff</td>
+<td align="center">53308.117885</td>
+</tr>
+<tr>
+<td align="center">user_last_click_article_binetwork_sim</td>
+<td align="center">35544.272514</td>
+</tr>
+<tr>
+<td align="center">user_click_article_w2w_sim_sum_2</td>
+<td align="center">22115.916349</td>
+</tr>
+<tr>
+<td align="center">user_click_timestamp_created_at_ts_diff_mean</td>
+<td align="center">20967.278802</td>
+</tr>
+<tr>
+<td align="center">user_click_timestamp_created_at_ts_diff_std</td>
+<td align="center">19246.184266</td>
+</tr>
+<tr>
+<td align="center">article_id</td>
+<td align="center">19177.854082</td>
+</tr>
+<tr>
+<td align="center">words_count</td>
+<td align="center">18412.732866</td>
+</tr>
+<tr>
+<td align="center">user_click_last_article_click_time</td>
+<td align="center">17445.728666</td>
+</tr>
+<tr>
+<td align="center">user_click_datetime_hour_std</td>
+<td align="center">17065.241513</td>
+</tr>
+<tr>
+<td align="center">user_id_category_id_cnt</td>
+<td align="center">16947.363850</td>
+</tr>
+<tr>
+<td align="center">created_at_ts</td>
+<td align="center">16833.830176</td>
+</tr>
+<tr>
+<td align="center">user_last_click_words_count_diff</td>
+<td align="center">16622.374522</td>
+</tr>
+<tr>
+<td align="center">user_clicked_article_words_count_mean</td>
+<td align="center">16606.933470</td>
+</tr>
+<tr>
+<td align="center">user_id_click_diff_mean</td>
+<td align="center">15513.968470</td>
+</tr>
+<tr>
+<td align="center">user_id_click_article_created_at_ts_diff_mean</td>
+<td align="center">15014.800224</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">14344.929410</td>
+</tr>
+<tr>
+<td align="center">user_click_last_article_words_count</td>
+<td align="center">14080.826424</td>
+</tr>
+<tr>
+<td align="center">user_clicked_article_click_time_mean</td>
+<td align="center">13204.633566</td>
+</tr>
+<tr>
+<td align="center">user_click_last_article_created_time</td>
+<td align="center">10290.474666</td>
+</tr>
+<tr>
+<td align="center">user_clicked_article_created_time_max</td>
+<td align="center">9965.635575</td>
+</tr>
+<tr>
+<td align="center">user_id_cnt</td>
+<td align="center">8507.025577</td>
+</tr>
+<tr>
+<td align="center">category_id</td>
+<td align="center">6201.554409</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.904Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%AC%E5%9B%9E/" rel="tag">召回</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" rel="tag">推荐系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90/" rel="tag">新闻推荐</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/&title=《零基础入门推荐系统新闻推荐正式赛-赛后分享》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/&title=《零基础入门推荐系统新闻推荐正式赛-赛后分享》 — 滑天下之大稽&source=最终成绩：2 / 5272比赛地址：https://tianchi.aliyun.com/competition/entrance/531842源码：ht..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《零基础入门推荐系统新闻推荐正式赛-赛后分享》 — 滑天下之大稽&url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/03/23/2021%E6%8E%A8%E5%B9%BF%E6%90%9C%E6%9A%91%E5%81%87%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2021推广搜算法暑假实习面经</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/01/31/2020%E5%8E%A6%E9%97%A8%E5%9B%BD%E9%99%85%E9%93%B6%E8%A1%8C%E6%95%B0%E5%88%9B%E9%87%91%E8%9E%8D%E6%9D%AF%E5%BB%BA%E6%A8%A1%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2020厦门国际银行数创金融杯建模大赛-赛后总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/&title=《零基础入门推荐系统新闻推荐正式赛-赛后分享》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/&title=《零基础入门推荐系统新闻推荐正式赛-赛后分享》 — 滑天下之大稽&source=最终成绩：2 / 5272比赛地址：https://tianchi.aliyun.com/competition/entrance/531842源码：ht..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《零基础入门推荐系统新闻推荐正式赛-赛后分享》 — 滑天下之大稽&url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2021/02/07/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%96%B0%E9%97%BB%E6%8E%A8%E8%8D%90%E6%AD%A3%E5%BC%8F%E8%B5%9B-%E8%B5%9B%E5%90%8E%E5%88%86%E4%BA%AB/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

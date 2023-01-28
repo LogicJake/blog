@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-ad-client="ca-pub-5130195766354391" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-109200981-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'blog-huaji/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66516376"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?be64f9fb12aa95483601071a01d9949a"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结 | 滑天下之大稽 |
+        无问西东</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="推荐系统,召回,排序">
+    <meta name="description" content="最终成绩：Full榜15，Half榜13比赛地址：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;231785&#x2F;源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;2020_KDD_Debiasing_TOP13   赛题背景该挑战着重于曝光的公平性，即推荐过去很少曝光的项目，以对抗在推荐系统中经常遇到的 Matthew 效应。特别是，在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结">
+<meta property="og:url" content="https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/index.html">
+<meta property="og:site_name" content="滑天下之大稽">
+<meta property="og:description" content="最终成绩：Full榜15，Half榜13比赛地址：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;231785&#x2F;源码：https:&#x2F;&#x2F;github.com&#x2F;LogicJake&#x2F;2020_KDD_Debiasing_TOP13   赛题背景该挑战着重于曝光的公平性，即推荐过去很少曝光的项目，以对抗在推荐系统中经常遇到的 Matthew 效应。特别是，在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.logicjake.xyz/time.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/data_construct.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/structure.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/nn1.png">
+<meta property="og:image" content="http://pic.logicjake.xyz/nn2.png">
+<meta property="article:published_time" content="2020-06-16T14:18:17.000Z">
+<meta property="article:modified_time" content="2023-01-28T11:49:21.900Z">
+<meta property="article:author" content="LogicJake">
+<meta property="article:tag" content="推荐系统">
+<meta property="article:tag" content="召回">
+<meta property="article:tag" content="排序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.logicjake.xyz/time.png">
+    
+    <link rel="alternate" type="application/atom+xml" title="滑天下之大稽"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">LogicJake</h5>
+          <a href="mailto:chenyangshi1996@gmail.com" title="chenyangshi1996@gmail.com" class="mail">chenyangshi1996@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+        <li class="waves-block waves-effect">
+          <a href="/" >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/about" >
+            <i class="icon icon-lg icon-address-card"></i>
+            About
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/LogicJake" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="https://logicjake.github.io/MLCompetitionHub/" target="_blank" >
+            <i class="icon icon-lg icon-trophy"></i>
+            竞赛信息
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/tags" >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/categories" >
+            <i class="icon icon-lg icon-th-list"></i>
+            分类
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/archives" >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+        
+        <li class="waves-block waves-effect">
+          <a href="/links" >
+            <i class="icon icon-lg icon-link"></i>
+            友情链接
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div>
+      <script type="text/javascript"
+        src="//rf.revolvermaps.com/0/0/8.js?i=5ak51z98tkj&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+        async="async">
+        </script>
+    </div>
+  </div>
+</aside>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-06-16T14:18:17.000Z" itemprop="datePublished" class="page-time">
+  2020-06-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#赛题背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">赛题背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#建模"><span class="post-toc-number">2.</span> <span class="post-toc-text">建模</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#召回"><span class="post-toc-number">3.</span> <span class="post-toc-text">召回</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进版-itemcf"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">改进版 itemcf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#item2vec"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">item2vec</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于商品属性的-ANN-召回"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">基于商品属性的 ANN 召回</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于网络的召回"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">基于网络的召回</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征工程"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">特征工程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后处理"><span class="post-toc-number">5.</span> <span class="post-toc-text">后处理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-KDD-debias-TOP13" class="post-article article-type-post fade"
+    itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-06-16 14:18:17" datetime="2020-06-16T14:18:17.000Z"  itemprop="datePublished">2020-06-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">比赛总结</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+<span id="word-count" title="文章总字数">
+    <i class="icon icon-book icon-pr"></i>字数统计:<span class="post-count">3.2k</span>字 |
+    阅读时长≈<span class="post-count">11</span>分钟
+</span>
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最终成绩：Full榜15，Half榜13<br>比赛地址：<a href="https://tianchi.aliyun.com/competition/entrance/231785/" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231785/</a><br>源码：<a href="https://github.com/LogicJake/2020_KDD_Debiasing_TOP13" target="_blank" rel="noopener">https://github.com/LogicJake/2020_KDD_Debiasing_TOP13</a>  </p>
+<h1 id="赛题背景"><a href="#赛题背景" class="headerlink" title="赛题背景"></a>赛题背景</h1><p>该挑战着重于曝光的公平性，即推荐过去很少曝光的项目，以对抗在推荐系统中经常遇到的 Matthew 效应。特别是，在对点击数据进行训练时执行偏差减少对该任务的成功至关重要。就像现代推荐系统中记录的点击数据与实际的在线环境有差距一样，训练数据与测试数据也会有差距，主要体现在趋势和物品的受欢迎程度上。获胜的解决方案需要在历史上很少暴露的项目上表现良好。训练数据和测试数据是在许多时期收集的，其中包括大规模的销售活动。由于趋势的变化，为了进行可靠的预测，减少偏差是不可避免的。我们提供物品的多模式特性以及一些(匿名的)关键用户特性，以帮助参与者探索解决方案，以调整数据偏差，并能够很好地处理未探索过的物品。</p>
+<h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><p>比赛给出的数据如下所示，××_click_× 是用户在各个阶段的点击记录，××_qtime_× 是需要预测的用户相对的最后一次点击。数据按划窗的方式逐阶段（phase）给出，各阶段的时间分布如图1所示。各阶段大概有4天的数据，相邻阶段数据时间有交叉。且单阶段中，训练集用户和测试集用户不交叉。原始数据集只给出了测试集的 qtime ，为了获取稳定的线下验证，需要我们自己构造有标签的训练集 qtime。基于题设，我们抽出每个阶段训练集用户的最后一条 click 数据作为训练集 qtime 数据，用于线下验证，形式化表示如图2所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">|-- data</span><br><span class="line">	|-- underexpose_train</span><br><span class="line">		|-- underexpose_user_feat.csv</span><br><span class="line">		|-- underexpose_item_feat.csv</span><br><span class="line">		|-- underexpose_train_click-0.csv</span><br><span class="line">		|-- ...</span><br><span class="line">		|-- underexpose_train_click-9.csv</span><br><span class="line">	|-- underexpose_test</span><br><span class="line">		|-- underexpose_test_click-0</span><br><span class="line">			|-- underexpose_test_qtime-0.csv</span><br><span class="line">			|-- underexpose_test_click-0.csv</span><br><span class="line">		|-- ...</span><br><span class="line">		|-- underexpose_test_click-9</span><br><span class="line">			|-- underexpose_test_qtime-9.csv</span><br><span class="line">			|-- underexpose_test_click-9.csv</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/time.png" alt="图1 各阶段时间分布" title="">
+                </div>
+                <div class="image-caption">图1 各阶段时间分布</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/data_construct.png" alt="图2 训练集 qtime 构造方式" title="">
+                </div>
+                <div class="image-caption">图2 训练集 qtime 构造方式</div>
+            </figure>
+
+<p>问题被切分为召回和排序两个部分，总共六路召回，最后合并删除重复召回的商品。排序阶段建模为二分类问题，采用了两个深度模型和一个LGB模型。整体流程如图3所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/structure.png" alt="图3 整体流程图" title="">
+                </div>
+                <div class="image-caption">图3 整体流程图</div>
+            </figure>
+
+<h1 id="召回"><a href="#召回" class="headerlink" title="召回"></a>召回</h1><p>在召回阶段，我们采用了6路召回，通过不同策略的差异性提高整体商品的召回率。这6种方法或利用点击序列信息提高了热门商品的召回率，或采用商品的属性信息提高冷门商品的召回率，或二者兼顾。在所有召回策略中，均是分 phase 召回。</p>
+<h2 id="改进版-itemcf"><a href="#改进版-itemcf" class="headerlink" title="改进版 itemcf"></a>改进版 itemcf</h2><p>原始的 itemcf 将用户点击过的商品看做一个无序的集合，但在实际应用中，应该考虑到点击次序和时间带来的影响。在计算同一序列中两个商品的相似度时，不仅需要考虑其共现次数，也需要考虑两个商品之间的次序关系和时间关系。同一点击序列中两个商品位置越远或者点击时间间隔越大，相关性应该减小。正因为存在时间和距离衰减，我们跳过了点击距离过远（大于5）或点击时间过长（大于0.000003）的商品对的相似度计算。商品对顺序和逆序的权重也不同，在点击序列A，B，C中，”BC”这样的正序权重应该大于”BA”这样的逆序权重。为了解决偏差问题，除了从序列上建立相似性关系，也可以将商品之间的文本相似度和图像相似度纳入相似性因素，引入这二者可以极大地提高冷门商品的召回率。</p>
+<p>建立商品的相似度关系后，进入到给用户召回商品阶段，根据用户的交互商品，结合商品相似度选择 TOP100 关联商品。选取关联商品时，除了考虑和历史交互商品的相似度，还要加入时间衰减，位置距离衰减和候选商品热度。</p>
+<p>我们总共有两版 itemcf，二者或在上述策略的部分选用上有所差异或者衰减函数有所差异。我们保存了本阶段得到的商品相似度，供后续特征工程进一步使用。</p>
+<h2 id="item2vec"><a href="#item2vec" class="headerlink" title="item2vec"></a>item2vec</h2><p>除了使用人工规则从序列中提取相似度，我们还可以使用序列学习模型 Word2Vec 为商品学习向量表示。将用户的商品点击序列作为句子喂到 Word2Vec 模型，然后选取和用户最近交互商品最相似的关联商品。向量学习和寻找相似全部使用 gensim 库的 Word2Vec 实现，向量维度和迭代次数对最终结果影响较大。该方法能够极好地召回冷门商品。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 模型训练</span><br><span class="line">model &#x3D; Word2Vec(sentences, size&#x3D;256, window&#x3D;5, min_count&#x3D;1,</span><br><span class="line">                         sg&#x3D;1, hs&#x3D;0, seed&#x3D;seed, iter&#x3D;300, negative&#x3D;5, workers&#x3D;6)</span><br><span class="line"></span><br><span class="line"># 寻找关联商品</span><br><span class="line">interacted_items &#x3D; user_item[user_id]</span><br><span class="line">sim_items &#x3D; model.wv.most_similar(positive&#x3D;[str(x) for x in interacted_items[-2:]], topn&#x3D;100)</span><br></pre></td></tr></table></figure>
+
+<h2 id="基于商品属性的-ANN-召回"><a href="#基于商品属性的-ANN-召回" class="headerlink" title="基于商品属性的 ANN 召回"></a>基于商品属性的 ANN 召回</h2><p>基于交互序列的 itemcf 倾向于召回热门商品，为了进一步提高冷门商品的召回，我们采用了基于商品属性信息的 ANN 召回方法。数据集本身给出了商品的文本表示和图像表示，所以可以分别针对商品的文本 embedding 和图像 embedding 进行向量召回。我们对用户历史交互商品的向量表示进行加权平均得到用户的表示向量。在相似度计算召回阶段，如果使用矩阵运算空间复杂度会非常高，如果采用双层 for 循环则时间复杂度又太高，所以我们使用 Annoy 工具。Annoy 是 Spotify 开源的一个用于近似最近邻查询的 C++/Python 工具，对内存使用进行了优化，索引可以在硬盘保存或者加载。简单来说，先将商品的向量表示建立索引，然后用用户的向量表示寻找近似的最相似商品。Annoy 稍微牺牲了相似度计算的准确度，却极大地提高了查找速度。</p>
+<p>对比基于商品文本信息和图像信息的召回，基于文本的召回方式要胜于基于图像的召回方式，可能是因为文本能更好地描述商品，而图片信息噪声相对较大。</p>
+<h2 id="基于网络的召回"><a href="#基于网络的召回" class="headerlink" title="基于网络的召回"></a>基于网络的召回</h2><p>该方法源自”Bipartite network projection and personal recommendation”，代码采用自论坛开源。该方法也分为两个阶段，商品相似度计算和基于用户交互历史的商品召回。在相似度计算阶段，通过用户将两个商品连接起来。计算相似度时考虑两种因素：1)两个商品的共同被点击用户过多，则相似度减少；2)共同被点击用户的交互商品过多，相似度也要减少。基于用户交互历史的商品召回和 itemcf 类似，不再赘述。</p>
+<p>我们设置每路都召回100个商品，但这之间肯定存在重复召回的情况，这也是为什么召回策略讲究差异性，其实就是为了减少重复召回的数量。去重之后，平均每个用户召回到440个商品。因为每个用户在 qtime 中只会点击一个商品，所以召回构造的样本正负比也会比较大，所以进一步地我们删除了召回未命中的用户样本，减少了无用负样本的数量，也提高了后续排序模型的效果。</p>
+<p>假设训练集用户A 在阶段0的 qtime 真实点击了商品i，基于用户A的阶段0历史交互记录，我们为其召回到商品i，j，k，l，那么在召回阶段结束我们可以得到如下样本。<br>| user_id | phase |  query_time  | item_id | label |<br>| :—–: | :—: | :———-: | :—–: | :—: |<br>|    A    |   0   | 0.9839420823 |    i    |   1   |<br>|    A    |   0   | 0.9839420823 |    j    |   0   |<br>|    A    |   0   | 0.9839420823 |    k    |   0   |<br>|    A    |   0   | 0.9839420823 |    l    |   0   |</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>我们把排序建模为二分类任务，分为特征工程和二分类模型预测两部分。特征工程主要围绕召回策略进行，大量使用用户历史交互商品和待预测商品的相似度特征。模型包括两个基于 LSTM 的深度模型和一个 LGB 模型，两个深度模型的预测概率作为 LGB 模型的特征。</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>特征工程分为三大类：商品属性，用户属性，用户-商品交互属性。数据集本身给出的属性信息较少，所以特征工程主要围绕交互属性展开。商品信息给出了128维的图像向量和128维的文本向量，原始向量维度较大，所以我们分别对其使用 PCA 降维，降维后反而提高了模型效果。除此以外统计了商品被点击次数，平均点击间隔，点击用户的年龄统计和性别统计。</p>
+<p>用户特征包括：</p>
+<ul>
+<li>user_age_level：用户所属的年龄段（原始属性）  </li>
+<li>user_gender：用户的性别，可以为空（原始属性）  </li>
+<li>user_city_level：用户所在城市的等级（原始属性）  </li>
+<li>历史点击商品次数</li>
+<li>历史点击时间的统计特征（min,max,std）</li>
+<li>预测时间点距离用户最进一次点击的时间差</li>
+<li>用户历史点击时间跨度（max-min）</li>
+</ul>
+<p>交互特征主要基于之前的召回策略进行，通过保存召回阶段的商品相似度信息或向量，我们能够间接或直接得到用户对待预测商品的评分。基于商品属性的ANN召回已经得到用户和商品的向量表示，通过余弦相似度可以直接得到用户对待预测商品的评分。基于 itemcf， Bipartite network 和 item2vec 的召回得到的只是商品之间的相似度，需要和用户的历史交互商品计算间接得到用户-商品评分，采用如下方式：</p>
+<ul>
+<li>待预测商品和用户所有历史交互商品最大相似度</li>
+<li>待预测商品和用户所有历史交互商品相似度按次序加权求和</li>
+<li>待预测商品和用户最近一次交互商品相似度</li>
+<li>待预测商品和用户最近k次交互商品相似度之和</li>
+<li>待预测商品和用户最近k次交互商品相似度平均</li>
+</ul>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>两个深度模型的结构分别如图4和图5所示，LSTM 能够很好地学习用户交互序列，所以两个模型都用到了 LSTM 层。图4的深度模型除了使用 LSTM 学习序列特征，还使用了 Attention 层进一步捕捉序列关系。除了学习序列特征，其还使用了特征工程部分输出的特征，将两类特征 concat 送入两层全连接层。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/nn1.png" alt="图4 深度模型1结构图" title="">
+                </div>
+                <div class="image-caption">图4 深度模型1结构图</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://pic.logicjake.xyz/nn2.png" alt="图5 深度模型2结构图" title="">
+                </div>
+                <div class="image-caption">图5 深度模型2结构图</div>
+            </figure>
+
+<p>图5模型与图4的主要不同点在于，将阶段 0-6 的序列输入到 Word2Vec 模型，预训练得到商品的 embedding，然后冻结模型中的 embedding layer。</p>
+<p>特征工程得到的特征加上两个深度模型的预测概率特征输入到 LGB 模型，输出每个用户点击某商品的最终概率。</p>
+<h1 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h1><p>我们进一步对预测概率值进行后处理，减轻商品推荐的偏差问题。统计每个商品历史被点击次数，适当让点击次数较少的商品被推荐概率放大。最开始我们让概率除以商品点击次数，但这种方式较为极端，极大提高 half 指标的同时，full 指标下降严重。因为复赛要保证 full 指标在前65成绩才有效，为了稳妥起见，我们选取了另外一种后处理方式：概率除以商品点击次数的开方，提高 half 的同时平衡 full 指标的下降。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://tianchi.aliyun.com/forum/postDetail?postId=105787" target="_blank" rel="noopener">改进青禹小生baseline，phase3线上：0.2</a><br><a href="https://tianchi.aliyun.com/forum/postDetail?postId=103530" target="_blank" rel="noopener">A simple itemCF Baseline, score:0.1169(phase0-2)
+</a><br><a href="https://tianchi.aliyun.com/forum/postDetail?postId=104936" target="_blank" rel="noopener">A Simple Recall Method based on Network-based Inference，score:0.18 (phase0-3)</a><br><a href="https://zhuanlan.zhihu.com/p/100827940" target="_blank" rel="noopener">天池-安泰杯跨境电商智能算法大赛分享（冠军）</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-01-28T11:49:21.900Z" itemprop="dateUpdated">2023-01-28 11:49:21</time>
+</span><br>
+
+
+        
+        <br><div align="center">(｡･ω･｡)只有聪明的人才可以看到评论区ԅ(¯﹃¯ԅ)</div>
+        
+    </div>
+    
+    <footer>
+        <a href="https://logicjake.github.io">
+            <img src="/img/avatar.png" alt="LogicJake">
+            LogicJake
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%AC%E5%9B%9E/" rel="tag">召回</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" rel="tag">推荐系统</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/&title=《KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/&title=《KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/09/24/2020%E8%85%BE%E8%AE%AF%E5%B9%BF%E5%91%8A%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2020腾讯广告算法大赛-赛后总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/21/%E5%A4%A9%E6%B1%A0%E4%BA%8C%E6%89%8B%E8%BD%A6%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E9%A2%84%E6%B5%8B-%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">天池二手车交易价格预测-赛后总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'd9cc12cdab9604abf3b9',
+          clientSecret: '7e88722e749e7d414c5644d5edf7a8a4816e9035',
+          repo: 'blog-issue',
+          owner: 'LogicJake',
+          admin: ['LogicJake'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>LogicJake &copy;
+                2018 -
+                2023</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">苏ICP备17047805号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
+                    href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/&title=《KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结》 — 滑天下之大稽&pic=https://logicjake.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/&title=《KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结》 — 滑天下之大稽&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《KDD Cup 2020 Challenges for Modern E-Commerce Platform: Debiasing TOP13赛后总结》 — 滑天下之大稽&url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/&via=https://logicjake.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://logicjake.github.io/2020/06/16/KDD-debias-TOP13/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261182417&web_id=1261182417')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

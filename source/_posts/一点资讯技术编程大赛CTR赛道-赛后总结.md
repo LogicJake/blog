@@ -51,7 +51,7 @@ for col in tqdm([c for c in train.columns if c not in ['userid', 'docid', 'click
 | category1st | 0.036   |
 | category2st | 0.053   |
 
-![](https://pic.logicjake.xyz/ydzz_model.png)
+![](https://raw.githubusercontent.com/LogicJake/imghub/master/ydzz_model.png)
 
 如上图所示，原始DNN的每层输入值乘上一个同维度的 scale 向量，该scale向量由一个独立的小网络得到，该小网络最后一层的激活函数是sigmoid，且✖️2，从而保证scale向量的值既能做到提升也能做到打压，拟合不同特征值巨大的分布差异。
 
